@@ -1,7 +1,8 @@
 import tensorflow as tf
 from python_scripts.code_generator.resolver_map import resolver_map
 import sys
-from python_scripts.file_utils import find_and_replace, copy_file
+import subprocess
+from python_scripts.file_utils import find_and_replace, copy_file, replace_line
 
 def get_ops_details(model_file):
     interpreter = tf.lite.Interpreter(model_path=model_file)
@@ -34,15 +35,23 @@ def generate_resolver_code(model_file):
 def generate_tensor_arena_code(tensor_arena_size):
     find_and_replace("cpp-project/tflite-test/model/model.h", "GEN_TENSOR_ARENA_SIZE", str(tensor_arena_size))
 
+def generate_model_binary(model_file):
+    command = f"xxd -i {model_file} > cpp-project/tflite-test/model/model_data.h"
+    try:
+        subprocess.run(command, shell=True, check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"XDD Command failed with return code {e.returncode}")
+        exit()
+    updated_binary_header = """
+#pragma once
+alignas(16) const unsigned char model_data[] = {
+"""
+    replace_line("cpp-project/tflite-test/model/model_data.h", 1, updated_binary_header)
+
+
 def generate_cpp_code(model_file, tensor_arena_size):
     copy_file("templates/model.h", "cpp-project/tflite-test/model")
     copy_file("templates/model.cpp", "cpp-project/tflite-test/model")
     generate_tensor_arena_code(tensor_arena_size)
     generate_resolver_code(model_file)
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Need file as arg")
-        exit()
-    ops_details = get_ops_details(sys.argv[1])
-    print(get_layer_function_calls(ops_details))
+    generate_model_binary(model_file)

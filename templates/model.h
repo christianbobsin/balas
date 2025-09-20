@@ -21,8 +21,7 @@ class MyModel {
         void print_outputs(ModelOutput& output);
         int get_input_size();
         int get_output_size();
-        DataType get_input_type();
-        DataType get_output_type();
+        int get_arena_used_bytes();
 };
 
 

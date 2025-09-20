@@ -67,26 +67,6 @@ int MyModel::get_output_size() {
 	return interpreter.output(0)->bytes;
 //	return interpreter.outputs_size();
 }
-DataType MyModel::get_input_type() {
-	switch (interpreter.input(0)->type) {
-		case kTfLiteInt8:
-			return DataType::INT8;
-		case kTfLiteFloat32:
-			return DataType::FLOAT32;
-		default:
-			while (1) {}
-	}
-	return DataType::INT8;
+int MyModel::get_arena_used_bytes() {
+    return interpreter.arena_used_bytes();
 }
-DataType MyModel::get_output_type() {
-	switch (interpreter.output(0)->type) {
-		case kTfLiteInt8:
-			return DataType::INT8;
-		case kTfLiteFloat32:
-			return DataType::FLOAT32;
-		default:
-			while (1) {}
-	}
-	return DataType::INT8;
-}
-
