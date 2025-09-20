@@ -1,5 +1,5 @@
 import tensorflow as tf
-from resolver_map import resolver_map
+from python_scripts.code_generator.resolver_map import resolver_map
 import sys
 from python_scripts.file_utils import find_and_replace, copy_file
 
@@ -28,15 +28,15 @@ def get_resolver_function_calls_code(model_file):
 
 def generate_resolver_code(model_file):
     n_ops, resolver_code = get_resolver_function_calls_code(model_file)
-    find_and_replace("cpp-project/tflite_test/model/model.h", "GEN_N_OPS", n_ops)
-    find_and_replace("cpp-project/tflite_test/model/model.cpp", "GEN_RESOLVER_OPS", resolver_code)
+    find_and_replace("cpp-project/tflite-test/model/model.h", "GEN_N_OPS", str(n_ops))
+    find_and_replace("cpp-project/tflite-test/model/model.cpp", "GEN_RESOLVER_OPS", resolver_code)
 
 def generate_tensor_arena_code(tensor_arena_size):
-    find_and_replace("cpp-project/tflite_test/model/model.h", "GEN_TENSOR_ARENA_SIZE", tensor_arena_size)
+    find_and_replace("cpp-project/tflite-test/model/model.h", "GEN_TENSOR_ARENA_SIZE", str(tensor_arena_size))
 
 def generate_cpp_code(model_file, tensor_arena_size):
-    copy_file("templates/model.h", "cpp-project/tflite_test/model")
-    copy_file("templates/model.cpp", "cpp-project/tflite_test/model")
+    copy_file("templates/model.h", "cpp-project/tflite-test/model")
+    copy_file("templates/model.cpp", "cpp-project/tflite-test/model")
     generate_tensor_arena_code(tensor_arena_size)
     generate_resolver_code(model_file)
 

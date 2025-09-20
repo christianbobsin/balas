@@ -1,5 +1,5 @@
 import argparse
-from python_scripts.code_generator import generate_cpp_code
+from python_scripts.code_generator.generator import generate_cpp_code
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

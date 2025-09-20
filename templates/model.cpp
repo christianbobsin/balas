@@ -27,7 +27,7 @@ MyModel::MyModel() :
     }
 
 
-    GEN_RESOLVER_OPS
+GEN_RESOLVER_OPS
 
 
     TfLiteStatus allocation_status = interpreter.AllocateTensors();
