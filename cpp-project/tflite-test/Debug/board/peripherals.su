@@ -1,0 +1,4 @@
+../board/peripherals.c:187:13:LP_FLEXCOMM4_init	8	static
+../board/peripherals.c:228:13:CTIMER0_init	8	static
+../board/peripherals.c:236:6:BOARD_InitPeripherals	8	static
+../board/peripherals.c:246:6:BOARD_InitBootPeripherals	8	static

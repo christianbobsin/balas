@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "fsl_assert.h": "c",
+        "fsl_debug_console_conf.h": "c",
+        "fsl_spc.h": "c"
+    }
+}

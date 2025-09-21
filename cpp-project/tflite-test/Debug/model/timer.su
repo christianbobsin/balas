@@ -1,0 +1,6 @@
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/drivers/fsl_ctimer.h:358:24:uint32_t CTIMER_GetTimerCountValue(CTIMER_Type*)	16	static
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/drivers/fsl_ctimer.h:517:20:void CTIMER_StartTimer(CTIMER_Type*)	16	static
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/drivers/fsl_ctimer.h:527:20:void CTIMER_StopTimer(CTIMER_Type*)	16	static
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/drivers/fsl_ctimer.h:541:20:void CTIMER_Reset(CTIMER_Type*)	16	static
+../model/timer.cpp:4:6:void start_timing()	8	static
+../model/timer.cpp:8:5:int stop_timing()	16	static

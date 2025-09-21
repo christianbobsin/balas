@@ -1,0 +1,2 @@
+../model/serial_io.cpp:4:6:void serial_read(uint8_t*, long unsigned int)	16	static
+../model/serial_io.cpp:8:6:void serial_write(uint8_t*, long unsigned int)	16	static
