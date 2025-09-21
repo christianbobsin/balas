@@ -1,0 +1,4 @@
+/usr/local/mcuxpressoide-25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.linux_25.6.0.202501151204/tools/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/model/input.h:9:5:ModelInput::ModelInput(int)	16	static
+/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/model/output.h:11:5:ModelOutput::ModelOutput(int)	16	static
+../source/MCXN947_Project.cpp:13:5:int main()	464	static

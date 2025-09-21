@@ -5,8 +5,11 @@
 
 class ModelOutput {
 public:
-    float data[OUTPUT_SIZE];
+    float* data;
     int size;
     unsigned long inference_time_us;
-    ModelOutput() : size(OUTPUT_SIZE) {}
+    ModelOutput(int size) {
+        this->data = new float[size];
+        this->size = sizeof(data);
+    }
 };

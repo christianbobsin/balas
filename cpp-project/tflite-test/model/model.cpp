@@ -28,7 +28,7 @@ MyModel::MyModel() :
 
 
 	resolver.AddConv2D();
-	resolver.AddAdd();
+	resolver.AddDepthwiseConv2D();
 	resolver.AddAveragePool2D();
 	resolver.AddReshape();
 	resolver.AddFullyConnected();

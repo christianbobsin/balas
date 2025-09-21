@@ -9,8 +9,6 @@
 #include "timer.h"
 #include <exception>
 
-ModelInput input;
-ModelOutput output; 
 
 int main(void) {
 	BOARD_InitBootPins();
@@ -18,6 +16,8 @@ int main(void) {
 	BOARD_InitBootPeripherals();
 
 	MyModel model;
+	ModelInput input(model.get_input_size());
+	ModelOutput output(model.get_output_size()); 
 
 
 	while (1) {

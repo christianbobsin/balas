@@ -60,10 +60,7 @@ alignas(16) const unsigned char model_data[] = {
 def generate_cpp_code(model_file, tensor_arena_size):
     copy_file("templates/model.h", "cpp-project/tflite-test/model")
     copy_file("templates/model.cpp", "cpp-project/tflite-test/model")
-    copy_file("templates/input.h", "cpp-project/tflite-test/model")
-    copy_file("templates/output.h", "cpp-project/tflite-test/model")
     generate_tensor_arena_code(tensor_arena_size)
     inputs, outputs, ops_details = analyze_model(model_file)
     generate_resolver_code(ops_details)
-    generate_io_code(inputs, outputs)
     generate_model_binary(model_file)

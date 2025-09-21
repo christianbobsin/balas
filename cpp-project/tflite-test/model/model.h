@@ -7,7 +7,7 @@
 #include "input.h"
 #include "output.h"
 
-#define TENSOR_ARENA_SIZE 56832
+#define TENSOR_ARENA_SIZE 103936
 #define N_OPS 6
 
 class MyModel {

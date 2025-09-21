@@ -1,11 +1,13 @@
 #pragma once
 #include <cstdint>
 
-#define INPUT_SIZE 3072
 
 class ModelInput {
 public:
-    float data[INPUT_SIZE];
+    float* data;
     int size;
-    ModelInput() : size(INPUT_SIZE) {}
+    ModelInput(int size) {
+        this->data = new float[size];
+        this->size = sizeof(data);
+    }
 };
