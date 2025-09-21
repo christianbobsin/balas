@@ -1,0 +1,11 @@
+10:39:57 **** Incremental Build of configuration Debug for project tflite-test ****
+make -r -j8 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "tflite-test.axf"; # arm-none-eabi-objcopy -v -O binary "tflite-test.axf" "tflite-test.bin" ; # checksum -p MCXN947 -d "tflite-test.bin";
+   text	   data	    bss	    dec	    hex	filename
+ 453612	     92	 257896	 711600	  adbb0	tflite-test.axf
+ 
+
+10:39:57 Build Finished. 0 errors, 0 warnings. (took 292ms)
+

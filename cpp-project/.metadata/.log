@@ -843,3 +843,385 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse
 
 !ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-20 11:42:02.762
 !MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-20 21:11:44.354 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/bruno/ufrgs/tcc/automator/cpp-project -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-20 21:14:29.024
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-20 21:14:29.309
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-20 21:14:29.314
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-20 21:14:29.322
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-20 21:14:29.328
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-20 21:14:34.007
+!MESSAGE Indexed 'tflite-test' (32 sources, 596 headers) in 23.5 sec: 82,683 declarations; 194,787 references; 0 unresolved inclusions; 31 syntax errors; 55 unresolved names (0.02%)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:52.526
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:52.537
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:52.605
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2025-09-21 10:39:52.606
+!MESSAGE RedlinkServer telnet session connected on port 3025->43032 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:55.323
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:55.330
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:59.170
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:39:59.177
+!MESSAGE dfu-util: Cannot open DFU device 3277:0060 found on devnum 2 (LIBUSB_ERROR_ACCESS)
+
+!ENTRY com.crt.log 1 0 2025-09-21 10:40:00.167
+!MESSAGE Starting GDB server [ /usr/local/LinkServer_25.6.131/binaries/crt_emu_cm_redlink, --server, :10989, -msg-port=35769, -g, -mi, -2, -pMCXN947, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, /home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/Debug, --flash-dir, /usr/local/LinkServer_25.6.131/binaries/Flash, --flash-dir, /home/bruno/ufrgs/tcc/automator/cpp-project/.mcuxpressoide_packages_support/MCXN947_support/Flash, --telnet, 3330, --romstalldelay, 600 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2025-09-21 10:40:01.177
+!MESSAGE Telnet session connected on port 3330->50328 @ 127.0.0.1
+!SESSION 2025-09-21 10:42:34.307 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-09-21 10:42:35.292
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-09-21 10:42:35.760
+!MESSAGE Error: Cannot invoke "org.eclipse.core.variables.VariablesPlugin.getStringVariableManager()" because the return value of "org.eclipse.core.variables.VariablesPlugin.getDefault()" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.variables.VariablesPlugin.getStringVariableManager()" because the return value of "org.eclipse.core.variables.VariablesPlugin.getDefault()" is null
+	at org.eclipse.cdt.managedbuilder.internal.core.Builder.getDefaultBuildPath(Builder.java:1812)
+	at org.eclipse.cdt.managedbuilder.internal.core.Builder.getBuildPath(Builder.java:1765)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.BuildBuildData.getBuilderCWD(BuildBuildData.java:42)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultBuildData.copySettingsFrom(CDefaultBuildData.java:56)
+	at org.eclipse.cdt.internal.core.settings.model.CBuildSettingCache.<init>(CBuildSettingCache.java:45)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.copyBuildData(CConfigurationDescriptionCache.java:247)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultConfigurationData.copySettingsFrom(CDefaultConfigurationData.java:110)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:154)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:199)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:509)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:239)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:426)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:408)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:402)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:395)
+	at org.eclipse.cdt.internal.core.model.CProject.computeSourceRoots(CProject.java:610)
+	at org.eclipse.cdt.internal.core.model.CProject.computeChildren(CProject.java:631)
+	at org.eclipse.cdt.internal.core.model.CProject.buildStructure(CProject.java:595)
+	at org.eclipse.cdt.internal.core.model.Openable.generateInfos(Openable.java:264)
+	at org.eclipse.cdt.internal.core.model.CElement.openWhenClosed(CElement.java:428)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:306)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:296)
+	at org.eclipse.cdt.internal.core.model.Parent.getChildren(Parent.java:57)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:295)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:272)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.createElement(DeltaProcessor.java:90)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:453)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.traverseDelta(DeltaProcessor.java:471)
+	at org.eclipse.cdt.internal.core.model.DeltaProcessor.processResourceDelta(DeltaProcessor.java:433)
+	at org.eclipse.cdt.internal.core.model.CModelManager.resourceChanged(CModelManager.java:931)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:321)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:311)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:174)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-09-21 10:42:35.805
+!MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2025-09-21 10:42:57.140 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-09-21 10:42:58.077
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-09-21 10:42:58.477
+!MESSAGE An internal error occurred during: "Setting up indexer".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.runtime.IExtensionRegistry.getConfigurationElementsFor(String)" because the return value of "org.eclipse.core.runtime.Platform.getExtensionRegistry()" is null
+	at org.eclipse.cdt.core.model.LanguageManager.cacheAllLanguages(LanguageManager.java:374)
+	at org.eclipse.cdt.core.model.LanguageManager.getLanguageForContentTypeID(LanguageManager.java:202)
+	at org.eclipse.cdt.internal.core.pdom.indexer.ProjectIndexerInputAdapter.<init>(ProjectIndexerInputAdapter.java:78)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:421)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:592)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:61)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-09-21 10:43:10.530 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 10:43:13.391
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 10:45:57.579 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 10:46:00.120
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 10:46:40.991 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 10:46:44.033
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 10:47:37.766 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 10:47:40.299
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:05:12.435 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:05:15.006
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:05:51.645 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:05:54.352
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:06:46.987 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:06:49.817
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:07:21.488 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:07:24.007
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:08:01.351 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:08:04.300
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:08:41.237 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:08:43.753
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:12:37.870 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:12:40.634
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:14:10.414 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:14:13.131
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:14:40.680 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:14:43.313
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:16:52.953 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:16:55.442
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:17:28.501 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:17:31.043
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:18:08.723 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:18:11.320
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:19:06.457 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:19:09.164
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:19:51.396 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:19:53.886
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:20:34.900 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:20:37.760
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:21:23.616 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:21:26.511
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:22:15.258 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:22:18.204
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:48:29.589 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:48:32.316
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:49:32.010 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:49:34.575
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:50:12.420 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:50:15.283
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 11:51:44.211 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 11:51:46.780
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
