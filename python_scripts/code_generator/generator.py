@@ -2,13 +2,18 @@ import tensorflow as tf
 from python_scripts.code_generator.resolver_map import resolver_map
 import sys
 import subprocess
+import numpy as np
 from python_scripts.file_utils import find_and_replace, copy_file, replace_line
 
-def get_ops_details(model_file):
+def analyze_model(model_file):
     interpreter = tf.lite.Interpreter(model_path=model_file)
     interpreter.allocate_tensors()
     ops_details = interpreter._get_ops_details()
-    return ops_details
+    input_details = interpreter.get_input_details()[0]
+    output_details = interpreter.get_output_details()[0]
+    inputs = np.prod(input_details['shape'])
+    outputs = np.prod(output_details['shape'])
+    return inputs, outputs, ops_details
 
 def get_resolver_function_names(ops_details):
     function_names = []
@@ -19,21 +24,24 @@ def get_resolver_function_names(ops_details):
             function_names.append(resolver_map[op['op_name']])
     return function_names
 
-def get_resolver_function_calls_code(model_file):
-    ops_details = get_ops_details(model_file)
+def get_resolver_function_calls_code(ops_details):
     function_names = get_resolver_function_names(ops_details)
     resolver_code = ""
     for name in function_names:
         resolver_code += f"\tresolver.{name}();\n"
     return (len(function_names), resolver_code)
 
-def generate_resolver_code(model_file):
-    n_ops, resolver_code = get_resolver_function_calls_code(model_file)
+def generate_resolver_code(ops_details):
+    n_ops, resolver_code = get_resolver_function_calls_code(ops_details)
     find_and_replace("cpp-project/tflite-test/model/model.h", "GEN_N_OPS", str(n_ops))
     find_and_replace("cpp-project/tflite-test/model/model.cpp", "GEN_RESOLVER_OPS", resolver_code)
 
 def generate_tensor_arena_code(tensor_arena_size):
     find_and_replace("cpp-project/tflite-test/model/model.h", "GEN_TENSOR_ARENA_SIZE", str(tensor_arena_size))
+
+def generate_io_code(inputs, outputs):
+    find_and_replace("cpp-project/tflite-test/model/input.h", "GEN_INPUT_SIZE", str(inputs))
+    find_and_replace("cpp-project/tflite-test/model/output.h", "GEN_OUTPUT_SIZE", str(outputs))
 
 def generate_model_binary(model_file):
     command = f"xxd -i {model_file} > cpp-project/tflite-test/model/model_data.h"
@@ -52,6 +60,10 @@ alignas(16) const unsigned char model_data[] = {
 def generate_cpp_code(model_file, tensor_arena_size):
     copy_file("templates/model.h", "cpp-project/tflite-test/model")
     copy_file("templates/model.cpp", "cpp-project/tflite-test/model")
+    copy_file("templates/input.h", "cpp-project/tflite-test/model")
+    copy_file("templates/output.h", "cpp-project/tflite-test/model")
     generate_tensor_arena_code(tensor_arena_size)
-    generate_resolver_code(model_file)
+    inputs, outputs, ops_details = analyze_model(model_file)
+    generate_resolver_code(ops_details)
+    generate_io_code(inputs, outputs)
     generate_model_binary(model_file)

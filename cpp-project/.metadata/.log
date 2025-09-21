@@ -1562,3 +1562,53 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse
 
 !ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 15:27:00.559
 !MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 16:49:29.922 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 16:49:31.839
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 16:52:57.285 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 16:52:59.175
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 16:54:40.163 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 16:54:41.993
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 16:55:44.766 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 16:55:46.714
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-21 17:02:44.764 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 17:02:46.773
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
