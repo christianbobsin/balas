@@ -213,3 +213,30 @@ arm-none-eabi-size "tflite-test.axf"; # arm-none-eabi-objcopy -v -O binary "tfli
    text	   data	    bss	    dec	    hex	filename
  453612	     92	 257896	 711600	  adbb0	tflite-test.axf
  
+15:14:11 **** Build of configuration Debug for project tflite-test ****
+make -r -j8 all 
+Building target: tflite-test.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"/home/bruno/ufrgs/tcc/automator/cpp-project/tflite-test/tensorflow" -Xlinker -Map="tflite-test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T tflite-test_Debug.ld -o "tflite-test.axf" ./utilities/str/fsl_str.o  ./utilities/debug_console/fsl_debug_console.o  ./utilities/fsl_assert.o  ./startup/boot_multicore_slave.o ./startup/startup_mcxn947_cm33_core0.o  ./source/MCXN947_Project.o ./source/cpp_config.o ./source/semihost_hardfault.o  ./model/model.o ./model/quantization.o ./model/serial_io.o ./model/timer.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ctimer.o ./drivers/fsl_gpio.o ./drivers/fsl_lpflexcomm.o ./drivers/fsl_lpi2c.o ./drivers/fsl_lpspi.o ./drivers/fsl_lpuart.o ./drivers/fsl_reset.o ./drivers/fsl_spc.o  ./device/system_MCXN947_cm33_core0.o  ./component/uart/fsl_adapter_lpuart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o    -ltensorflow-microlite
+Memory region         Used Size  Region Size  %age Used
+  PROGRAM_FLASH0:      453608 B         1 MB     43.26%
+  PROGRAM_FLASH1:           0 B         1 MB      0.00%
+            SRAM:      251928 B       384 KB     64.07%
+           SRAMX:           0 B        96 KB      0.00%
+           SRAMH:           0 B        32 KB      0.00%
+         USB_RAM:           0 B         4 KB      0.00%
+Finished building target: tflite-test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "tflite-test.axf"; # arm-none-eabi-objcopy -v -O binary "tflite-test.axf" "tflite-test.bin" ; # checksum -p MCXN947 -d "tflite-test.bin";
+   text	   data	    bss	    dec	    hex	filename
+ 453516	     92	 251832	 705440	  ac3a0	tflite-test.axf
+ 
+15:14:13 **** Incremental Build of configuration Debug for project tflite-test ****
+make -r -j8 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "tflite-test.axf"; # arm-none-eabi-objcopy -v -O binary "tflite-test.axf" "tflite-test.bin" ; # checksum -p MCXN947 -d "tflite-test.bin";
+   text	   data	    bss	    dec	    hex	filename
+ 453516	     92	 251832	 705440	  ac3a0	tflite-test.axf
+ 

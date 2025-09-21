@@ -20,6 +20,7 @@ def send_random_input_and_get_result(model_path: str, serial_port: str) -> int:
     # Serialize to bytes
     payload = struct.pack('<' + 'f' * input_size, *data)
 
+    print(f"Sending {input_shape} float values. {len(payload)} bytes")
     # Open serial
     with serial.Serial(serial_port, baudrate=115200, timeout=10) as ser:
         # Send payload
