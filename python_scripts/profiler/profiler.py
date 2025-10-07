@@ -4,6 +4,70 @@ import serial
 import tensorflow as tf
 import argparse
 
+import os
+import numpy as np
+
+def load_bin_dir_as_f32_list(dir_path):
+    """
+    Loads all .bin files in a directory as float32 numpy arrays.
+
+    Parameters:
+        dir_path (str): Path to the directory containing .bin files.
+
+    Returns:
+        List[np.ndarray]: List of numpy arrays, each loaded from a .bin file.
+    """
+    arrays = []
+    for fname in os.listdir(dir_path):
+        if fname.endswith(".bin"):
+            file_path = os.path.join(dir_path, fname)
+            arr = np.fromfile(file_path, dtype=np.float32)
+            arrays.append(arr)
+    return arrays
+
+import serial
+import numpy as np
+
+def send_array_and_get_int(port_name, array: np.ndarray) -> int:
+    """
+    Sends a float32 numpy array via serial and reads a signed int32 response.
+
+    Parameters:
+        port_name (str): Serial port device name (e.g., "/dev/ttyUSB0").
+        array (np.ndarray): Numpy array of dtype float32.
+
+    Returns:
+        int: The signed int32 received from the device.
+    """
+    if array.dtype != np.float32:
+        raise ValueError("Array must be of dtype float32")
+
+    # Open serial port
+    with serial.Serial(port=port_name, baudrate=115200, timeout=10) as ser:
+        # Send the array as raw bytes
+        ser.write(array.tobytes())
+
+        # Read 4 bytes for signed int32
+        resp_bytes = ser.read(4)
+        if len(resp_bytes) != 4:
+            raise RuntimeError("Did not receive 4 bytes from device")
+
+        # Convert bytes to int32
+        resp_int = int.from_bytes(resp_bytes, byteorder='little', signed=True)
+        return resp_int
+
+def send_profiling_inputs(serial_port, profiling_dir):
+    f32_inputs = load_bin_dir_as_f32_list(profiling_dir)
+    inference_times = []
+    count = 1
+    for f32_input in f32_inputs:
+        inference_time_us = send_array_and_get_int(serial_port, f32_input)
+        inference_times.append(inference_time_us)
+        print(f"Inference {count}/{len(f32_inputs)}: {inference_time_us} us")
+        count += 1
+    return inference_times
+
+
 def send_random_input_and_get_result(model_path: str, serial_port: str) -> int:
     # Load model
     interpreter = tf.lite.Interpreter(model_path=model_path)
@@ -38,7 +102,7 @@ def send_random_input_and_get_result(model_path: str, serial_port: str) -> int:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("model_quant", help="Path to the quantized model file")
-    #parser.add_argument("f32_test_dataset", help="Path to the float32 test dataset file")
+    parser.add_argument("profiling_dataset", help="Path to the dataset with .bin float32 inputs")
     #parser.add_argument("serial_device", help="Path to the serial device (e.g. /dev/ttyUSB0)")
     args = parser.parse_args()
     inference_time_us = send_random_input_and_get_result(args.model_quant, "/dev/ttyACM0")

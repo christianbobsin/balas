@@ -1732,3 +1732,113 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse
 
 !ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-21 19:19:16.081
 !MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-09-27 19:26:33.496 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-09-27 19:26:36.322
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-05 14:59:00.284 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-05 14:59:03.160
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-05 15:05:51.709 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-05 15:05:54.473
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 08:34:54.251 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 08:34:57.605
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 08:36:00.061 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 08:36:02.629
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 08:36:36.819 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 08:36:39.429
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 08:37:10.948 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 08:37:13.612
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 21:01:38.109 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 21:01:41.033
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 21:23:57.253 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 21:23:59.790
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 21:25:08.963 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 21:25:11.542
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.
+!SESSION 2025-10-06 21:25:57.087 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -build tflite-test/Debug
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data /home/bruno/ufrgs/tcc/automator/cpp-project -build tflite-test/Debug
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2025-10-06 21:25:59.470
+!MESSAGE The device 'MCXN947' (version='1.0.0') from SDK 'SDK_2.x_FRDM-MCXN947' (version='25.06.00', build='epluginsite814 2025-06-27') will be installed.

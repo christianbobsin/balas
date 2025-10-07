@@ -28,8 +28,11 @@ MyModel::MyModel() :
 
 
 	resolver.AddConv2D();
-	resolver.AddDepthwiseConv2D();
+	resolver.AddAdd();
 	resolver.AddAveragePool2D();
+	resolver.AddShape();
+	resolver.AddStridedSlice();
+	resolver.AddPack();
 	resolver.AddReshape();
 	resolver.AddFullyConnected();
 	resolver.AddSoftmax();
