@@ -1,12 +1,66 @@
-#!/bin/bash
-PROJECT_NAME=tflite-test
-MCUX_WORKSPACE_LOC=/home/bruno/ufrgs/tcc/automator/cpp-project
-MCUX_FLASH_DIR1=$MCUX_WORKSPACE_LOC/.mcuxpressoide_packages_support/MCXN947_support/Flash
-LINKSERVER_BIN=/usr/local/LinkServer/binaries
-MCUX_FLASH_DIR0=$LINKSERVER_BIN/Flash
+#!/usr/bin/env bash
+set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="${REPO_ROOT:-$SCRIPT_DIR}"
 
-$LINKSERVER_BIN/crt_emu_cm_redlink --flash-load-exec "$MCUX_WORKSPACE_LOC/$PROJECT_NAME/Debug/$PROJECT_NAME.axf" \
-    -p MCXN947 --bootromstall 0x50000040 --probeserial IRFAZHJCVDLI1 -CoreIndex=0 \
-        --flash-driver= -x $MCUX_WORKSPACE_LOC/$PROJECT_NAME/Debug --flash-dir $MCUX_FLASH_DIR0 \
-            --flash-dir $MCUX_FLASH_DIR1 --flash-hashing --PreconnectScript LS_preconnect_MCXN9XX.scp
+PROJECT_NAME="${PROJECT_NAME:-tflite-test}"
+WORKSPACE_DIR="${WORKSPACE_DIR:-$REPO_ROOT/cpp-project}"
+PROJECT_DIR="${PROJECT_DIR:-$WORKSPACE_DIR/$PROJECT_NAME}"
+BUILD_DIR="${BUILD_DIR:-$PROJECT_DIR/Debug}"
+AXF_FILE="${AXF_FILE:-$BUILD_DIR/$PROJECT_NAME.axf}"
+
+TARGET_DEVICE="${TARGET_DEVICE:-MCXN947}"
+CORE_INDEX="${CORE_INDEX:-0}"
+BOOTROM_STALL="${BOOTROM_STALL:-0x50000040}"
+
+LINKSERVER_ROOT="${LINKSERVER_ROOT:-/usr/local/LinkServer}"
+REDLINK_BIN="${REDLINK_BIN:-$LINKSERVER_ROOT/binaries/crt_emu_cm_redlink}"
+LINKSERVER_FLASH_DIR="${LINKSERVER_FLASH_DIR:-$LINKSERVER_ROOT/binaries/Flash}"
+PACKAGE_SUPPORT_DIR="${PACKAGE_SUPPORT_DIR:-$WORKSPACE_DIR/.mcuxpressoide_packages_support/MCXN947_support}"
+PACKAGE_FLASH_DIR="${PACKAGE_FLASH_DIR:-$PACKAGE_SUPPORT_DIR/Flash}"
+PRECONNECT_SCRIPT="${PRECONNECT_SCRIPT:-$LINKSERVER_ROOT/binaries/ToolScripts/LS_preconnect_MCXN9XX.scp}"
+
+# Optional. If omitted, LinkServer will auto-select the probe when possible.
+PROBE_SERIAL="${PROBE_SERIAL:-${1:-}}"
+
+if [[ ! -f "$REDLINK_BIN" ]]; then
+    echo "crt_emu_cm_redlink not found: $REDLINK_BIN" >&2
+    echo "Set REDLINK_BIN or LINKSERVER_ROOT to match your local LinkServer installation." >&2
+    exit 1
+fi
+
+if [[ ! -f "$AXF_FILE" ]]; then
+    echo "Firmware image not found: $AXF_FILE" >&2
+    echo "Build the project first or override AXF_FILE/BUILD_DIR/PROJECT_NAME." >&2
+    exit 1
+fi
+
+cmd=(
+    "$REDLINK_BIN"
+    --flash-load-exec "$AXF_FILE"
+    -p "$TARGET_DEVICE"
+    --bootromstall "$BOOTROM_STALL"
+    -CoreIndex="$CORE_INDEX"
+    --flash-driver=
+    -x "$BUILD_DIR"
+    --flash-hashing
+)
+
+if [[ -n "$PROBE_SERIAL" ]]; then
+    cmd+=(--probeserial "$PROBE_SERIAL")
+fi
+
+if [[ -d "$LINKSERVER_FLASH_DIR" ]]; then
+    cmd+=(--flash-dir "$LINKSERVER_FLASH_DIR")
+fi
+
+if [[ -d "$PACKAGE_FLASH_DIR" ]]; then
+    cmd+=(--flash-dir "$PACKAGE_FLASH_DIR")
+fi
+
+if [[ -f "$PRECONNECT_SCRIPT" ]]; then
+    cmd+=(--PreconnectScript "$PRECONNECT_SCRIPT")
+fi
+
+"${cmd[@]}"
