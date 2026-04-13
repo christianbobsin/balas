@@ -1,0 +1,17 @@
+{
+  "suite_name": "image-classification-reduced",
+  "defaults": {
+    "serial_device": "/dev/ttyACM0",
+    "skip_compile": true,
+    "skip_deploy": true
+  },
+  "entries": [
+    {
+      "family": "image_classification",
+      "name": "recovered_sanity_fixture",
+      "model_path": "../sanity-model/model_quant.tflite",
+      "profiling_dataset": "../sanity-model/profiling_dataset",
+      "arena_size": 57344
+    }
+  ]
+}
