@@ -1,4 +1,7 @@
 myenv
+.venv
+.balas.env
+__pycache__
 python_scripts/__pycache__
 python_scripts/code_generator/__pycache__
 python_scripts/arena_estimator/__pycache__

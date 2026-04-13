@@ -2,6 +2,14 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="${BALAS_CONFIG_FILE:-$SCRIPT_DIR/.balas.env}"
+if [[ -f "$CONFIG_FILE" ]]; then
+    set -a
+    # shellcheck disable=SC1090
+    source "$CONFIG_FILE"
+    set +a
+fi
+
 REPO_ROOT="${REPO_ROOT:-$SCRIPT_DIR}"
 
 PROJECT_NAME="${PROJECT_NAME:-tflite-test}"

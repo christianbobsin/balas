@@ -1,11 +1,10 @@
 import struct
-import numpy as np
-import serial
-import tensorflow as tf
 import argparse
-
 import os
 import numpy as np
+import serial
+
+from python_scripts.config import default_serial_port
 
 def load_bin_dir_as_f32_list(dir_path):
     """
@@ -24,9 +23,6 @@ def load_bin_dir_as_f32_list(dir_path):
             arr = np.fromfile(file_path, dtype=np.float32)
             arrays.append(arr)
     return arrays
-
-import serial
-import numpy as np
 
 def send_array_and_get_int(port_name, array: np.ndarray) -> int:
     """
@@ -69,6 +65,8 @@ def send_profiling_inputs(serial_port, profiling_dir):
 
 
 def send_random_input_and_get_result(model_path: str, serial_port: str) -> int:
+    import tensorflow as tf
+
     # Load model
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
@@ -103,7 +101,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("model_quant", help="Path to the quantized model file")
     parser.add_argument("profiling_dataset", help="Path to the dataset with .bin float32 inputs")
-    #parser.add_argument("serial_device", help="Path to the serial device (e.g. /dev/ttyUSB0)")
+    parser.add_argument(
+        "--serial-device",
+        default=default_serial_port(),
+        help="Path to the serial device (default: BALAS_SERIAL_PORT or /dev/ttyACM0)",
+    )
     args = parser.parse_args()
-    inference_time_us = send_random_input_and_get_result(args.model_quant, "/dev/ttyACM0")
+    inference_time_us = send_random_input_and_get_result(args.model_quant, args.serial_device)
     print(f"Inference Time with random data: {inference_time_us} us")
