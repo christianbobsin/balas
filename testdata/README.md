@@ -45,9 +45,12 @@ O `manifest.json` desse fixture deveria registrar pelo menos:
 
 ## Estado atual
 
-No momento, o repositorio ainda nao contem um modelo `.tflite` congelado e validado para testes comparativos.
+Agora existe um fixture pequeno e validado em `testdata/sanity-model/`.
 
-Por isso:
+Esse fixture foi montado a partir do `model_data.h` ja presente no projeto e inclui:
 
-- os artefatos gerados do workspace foram tratados como lixo de build local
-- a estrategia correta daqui para frente e adicionar um fixture pequeno e intencional neste diretorio
+- um `.tflite` recuperado do header gerado do firmware
+- um dataset pequeno e deterministico de arquivos `.bin` em `float32`
+- um manifesto com shape, arena, MACs e observacoes de validacao
+
+Isso permite repetir um sanity test sem depender de downloads externos nem de um workspace do MCUXpresso previamente populado.

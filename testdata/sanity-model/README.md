@@ -2,9 +2,9 @@
 
 ## Objetivo
 
-Este diretorio reserva um fixture pequeno e controlado para sanity tests reproduziveis do projeto.
+Este diretorio contem um fixture pequeno e controlado para sanity tests reproduziveis do projeto.
 
-Quando um modelo de referencia for escolhido, ele deve ser colocado aqui junto com um conjunto minimo de entradas e um manifesto de metadados.
+O fixture atual foi recuperado do proprio firmware ja versionado no repositorio e validado contra uma FRDM-MCXN947 conectada por USB serial.
 
 ## Estrutura
 
@@ -14,43 +14,70 @@ testdata/sanity-model/
   manifest.json
   model_quant.tflite
   profiling_dataset/
-    .gitkeep
+    sample_001.bin
+    ...
+    sample_010.bin
 ```
 
-## O que colocar aqui
+## O que existe aqui
 
 - `model_quant.tflite`
-  Modelo quantizado pequeno e conhecido, usado como referencia de teste.
+  Modelo quantizado recuperado de `cpp-project/tflite-test/model/model_data.h`.
 
 - `profiling_dataset/`
-  Pequeno conjunto de amostras `.bin` em `float32`, suficiente para validar o protocolo serial e a agregacao do host.
+  Dez tensores deterministicos em `float32`, no shape `1x32x32x3`, gerados com seed fixa.
 
 - `manifest.json`
-  Metadados esperados do fixture, incluindo arena, MACs e observacoes de uso.
+  Metadados do fixture e dos valores observados na validacao.
 
-## Critérios para o modelo congelado
+## O que este fixture representa
 
-O modelo escolhido para este fixture deve:
+Pelos metadados do modelo recuperado e pelo PDF do TCC, este fixture corresponde ao caso de `Image Classification`:
 
-- ser pequeno o suficiente para build e deploy rapidos
-- ter formato de entrada simples
-- funcionar de forma estavel no fluxo host + firmware
-- ser licitamente versionavel no repositorio
+- entrada em host: `float32` com shape `1x32x32x3`
+- entrada no modelo: `int8`
+- saida do modelo: `int8` com shape `1x10`
+- conjunto de referencia do trabalho: CIFAR-10 convertido para `float32`
 
-## Fluxo esperado
+Para evitar dependencia de download externo, o dataset versionado aqui e sintetico, mas respeita o mesmo shape e o mesmo contrato de serializacao em `float32`. Ele serve para sanity test de ambiente, protocolo serial, build e relatorio. Nao serve para avaliar acuracia.
 
-Quando este fixture estiver populado, o sanity test ideal sera:
+## Como reconstruir localmente
 
-1. usar `model_quant.tflite` como entrada do `automator.py`
-2. usar `profiling_dataset/` como dataset de profiling
-3. comparar o comportamento observado com os valores registrados em `manifest.json`
+Recuperar o `.tflite` diretamente do header:
 
-## Estado atual
+```bash
+source .venv/bin/activate
+python python_scripts/recover_tflite_from_header.py \
+  cpp-project/tflite-test/model/model_data.h \
+  testdata/sanity-model/model_quant.tflite
+```
 
-Este diretorio foi criado vazio de proposito.
+Gerar novamente o dataset deterministico:
 
-Ainda falta escolher e adicionar:
+```bash
+source .venv/bin/activate
+python python_scripts/generate_float32_dataset.py \
+  testdata/sanity-model/profiling_dataset \
+  --model-path testdata/sanity-model/model_quant.tflite \
+  --samples 10 \
+  --mode uint8_as_float32 \
+  --seed 42
+```
 
-- um `model_quant.tflite` real
-- amostras `.bin` reais em `profiling_dataset/`
-- valores preenchidos no `manifest.json`
+## Fluxo validado
+
+O fluxo abaixo foi validado com sucesso nesta maquina:
+
+```bash
+source .venv/bin/activate
+python automator.py \
+  testdata/sanity-model/model_quant.tflite \
+  testdata/sanity-model/profiling_dataset \
+  ./results.csv \
+  --arena-size 57344 \
+  --serial-device /dev/ttyACM0 \
+  --skip-compile \
+  --skip-deploy
+```
+
+Se voce precisar recompilar ou regravar o firmware, remova os flags `--skip-compile` e `--skip-deploy`.

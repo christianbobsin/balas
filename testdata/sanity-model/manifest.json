@@ -1,24 +1,43 @@
 {
-  "name": "sanity-model",
-  "status": "placeholder",
+  "name": "image-classification-recovered",
+  "status": "validated_sanity_fixture",
   "model_file": "model_quant.tflite",
   "profiling_dataset_dir": "profiling_dataset",
+  "source": {
+    "type": "recovered_from_cpp_header",
+    "header_path": "../../cpp-project/tflite-test/model/model_data.h",
+    "recovery_script": "../../python_scripts/recover_tflite_from_header.py"
+  },
   "input_format": {
-    "dtype": "float32",
-    "shape": [],
-    "notes": "Preencher quando o modelo congelado for adicionado."
+    "host_dtype": "float32",
+    "model_dtype": "int8",
+    "shape": [1, 32, 32, 3],
+    "host_bytes_per_sample": 12288,
+    "notes": "O PDF do TCC descreve este caso como Image Classification com entradas do CIFAR-10 convertidas para float32 antes do envio serial."
+  },
+  "output_format": {
+    "model_dtype": "int8",
+    "shape": [1, 10]
   },
   "expected": {
-    "arena_size": null,
-    "macs": null,
-    "sample_count": 0
+    "arena_size": 57344,
+    "macs": 12501632,
+    "sample_count": 10
   },
   "host_requirements": {
     "serial_port_default": "/dev/ttyACM0",
     "baudrate": 115200
   },
+  "validation": {
+    "date": "2026-04-13",
+    "board": "FRDM-MCXN947",
+    "validation_mode": "automator_skip_compile_skip_deploy",
+    "observed_sample_count": 10,
+    "observed_avg_inference_us": 234708.2,
+    "observed_std_inference_us": 7.807688518377254
+  },
   "notes": [
-    "Este manifesto e um placeholder inicial.",
-    "Preencher os campos nulos quando um modelo de referencia for escolhido."
+    "O dataset versionado neste fixture e sintetico e deterministico, usado para sanity test de ambiente.",
+    "Para avaliar acuracia, substitua o profiling_dataset por amostras reais do fluxo descrito no TCC."
   ]
 }
