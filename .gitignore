@@ -2,6 +2,13 @@ myenv
 .venv
 .balas.env
 __pycache__
+*.pyc
 python_scripts/__pycache__
 python_scripts/code_generator/__pycache__
 python_scripts/arena_estimator/__pycache__
+python_scripts/**/__pycache__/
+cpp-project/.metadata/
+cpp-project/.mcuxpressoide_packages_support/
+cpp-project/tflite-test/.settings/
+cpp-project/tflite-test/Debug/
+cpp-project/tflite-test/Release/
