@@ -1,8 +1,11 @@
-import tensorflow as tf
-from python_scripts.code_generator.resolver_map import resolver_map
-import sys
+import re
 import subprocess
+import sys
+
 import numpy as np
+import tensorflow as tf
+
+from python_scripts.code_generator.resolver_map import resolver_map
 from python_scripts.file_utils import find_and_replace, copy_file, replace_line
 
 def analyze_model(model_file):
@@ -55,6 +58,15 @@ def generate_model_binary(model_file):
 alignas(16) const unsigned char model_data[] = {
 """
     replace_line("cpp-project/tflite-test/model/model_data.h", 1, updated_binary_header)
+    with open("cpp-project/tflite-test/model/model_data.h", "r", encoding="utf-8") as file:
+        content = file.read()
+    normalized_content = re.sub(
+        r"unsigned int [A-Za-z0-9_]+_len = (\d+);",
+        r"unsigned int model_data_len = \1;",
+        content,
+    )
+    with open("cpp-project/tflite-test/model/model_data.h", "w", encoding="utf-8") as file:
+        file.write(normalized_content)
 
 
 def generate_cpp_code(model_file, tensor_arena_size):
