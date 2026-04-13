@@ -1,0 +1,24 @@
+{
+  "name": "sanity-model",
+  "status": "placeholder",
+  "model_file": "model_quant.tflite",
+  "profiling_dataset_dir": "profiling_dataset",
+  "input_format": {
+    "dtype": "float32",
+    "shape": [],
+    "notes": "Preencher quando o modelo congelado for adicionado."
+  },
+  "expected": {
+    "arena_size": null,
+    "macs": null,
+    "sample_count": 0
+  },
+  "host_requirements": {
+    "serial_port_default": "/dev/ttyACM0",
+    "baudrate": 115200
+  },
+  "notes": [
+    "Este manifesto e um placeholder inicial.",
+    "Preencher os campos nulos quando um modelo de referencia for escolhido."
+  ]
+}
