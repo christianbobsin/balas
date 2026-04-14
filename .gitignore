@@ -12,3 +12,7 @@ cpp-project/.mcuxpressoide_packages_support/
 cpp-project/tflite-test/.settings/
 cpp-project/tflite-test/Debug/
 cpp-project/tflite-test/Release/
+external/mlcommons-tiny/
+datasets/downloads/
+datasets/cifar-10-batches-py/
+artifacts/phase1_image_classification/generated/

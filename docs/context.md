@@ -258,6 +258,79 @@ Esse fixture representa um caso pequeno e reproduzivel de sanity test.
 
 Observacoes:
 
+## Estrutura nova para a Fase 1 do artigo
+
+Foi iniciada a organizacao especifica para reproduzir a familia `image_classification` do PDF de Bruno Silveira.
+
+Arquivos novos principais:
+
+- `configs/phase1_image_classification.json`
+- `python_scripts/phase1/fetch_mlcommons_ic.py`
+- `python_scripts/phase1/fetch_cifar10.py`
+- `python_scripts/phase1/build_ic_variants.py`
+- `python_scripts/phase1/quantize_ic_variants.py`
+- `python_scripts/phase1/build_ic_profiling_dataset.py`
+- `python_scripts/phase1/make_ic_suite_manifest.py`
+- `docs/fase1-image-classification.md`
+
+Estrutura local criada para esse fluxo:
+
+- `external/`
+- `datasets/`
+- `artifacts/phase1_image_classification/`
+
+Decisoes de portabilidade:
+
+- fontes externas e datasets ficam fora do versionamento
+- artefatos gerados da Fase 1 ficam em `artifacts/phase1_image_classification/generated/`
+- a grade de 96 variantes fica congelada em `configs/phase1_image_classification.json`
+- qualquer ajuste local deve ocorrer por argumentos dos scripts ou pela edicao pontual do `config`, sem hardcode de caminhos pessoais no codigo
+
+Scripts hoje disponiveis na Fase 1:
+
+- `python_scripts/phase1/fetch_mlcommons_ic.py`
+- `python_scripts/phase1/fetch_cifar10.py`
+- `python_scripts/phase1/build_ic_variants.py`
+- `python_scripts/phase1/quantize_ic_variants.py`
+- `python_scripts/phase1/build_ic_profiling_dataset.py`
+- `python_scripts/phase1/make_ic_suite_manifest.py`
+- `python_scripts/phase1/common.py`
+- `python_scripts/phase1/cifar10_utils.py`
+
+## Fase 1 ja executada nesta maquina
+
+Nao ficou apenas na organizacao. O fluxo piloto da Fase 1 foi efetivamente executado no ambiente atual.
+
+O que ja foi feito:
+
+- clone raso da referencia oficial `MLCommons Tiny` em `external/mlcommons-tiny/`
+- download e extracao do `CIFAR-10` oficial em `datasets/cifar-10-batches-py/`
+- geracao de 1 variante piloto da grade de `image_classification`
+- quantizacao da variante piloto para `.tflite` `int8`
+- geracao de dataset de profiling com 10 amostras, uma por classe
+- geracao de manifesto para o runner experimental existente
+- execucao real do runner com compilacao, deploy e profiling na placa
+
+Modelo piloto validado:
+
+- `ic_c1-16_k1-3_c2-32_k2-3_c3-64_k3-2`
+
+Arquivos gerados no piloto:
+
+- `artifacts/phase1_image_classification/generated/float_models/`
+- `artifacts/phase1_image_classification/generated/quantized_models/`
+- `artifacts/phase1_image_classification/generated/profiling_dataset/default/`
+- `artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json`
+
+Correcao importante feita durante a validacao:
+
+- `python_scripts/phase1/make_ic_suite_manifest.py` foi ajustado para gravar caminhos relativos ao diretorio do manifesto, e nao ao diretorio raiz do repositorio
+
+Melhorias de robustez aplicadas:
+
+- os scripts da Fase 1 nao carregam mais TensorFlow desnecessariamente em `--help`
+- o loader do `CIFAR-10` em `python_scripts/phase1/cifar10_utils.py` foi ajustado para evitar warning desnecessario durante a leitura do dataset oficial
+
 - o modelo veio da recuperacao de `model_data.h`
 - o dataset versionado e sintetico e deterministico
 - ele serve para sanity test de ambiente, serial, build e relatorio
@@ -296,6 +369,86 @@ Conclusao:
 - a placa responde pela serial
 - o fixture atual e suficiente para sanity test reproduzivel
 
+## Validacao do piloto da Fase 1 na placa
+
+Foi validado um piloto real da Fase 1 usando o runner:
+
+```bash
+source .venv/bin/activate
+python python_scripts/experiments/run_benchmark_suite.py \
+  artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json \
+  /tmp/phase1-image-classification-pilot.csv
+```
+
+O primeiro disparo falhou por causa do bug de caminho no manifesto. Depois da correcao, o piloto passou com sucesso.
+
+Resultado valido observado:
+
+- `family = image_classification`
+- `name = ic_c1-16_k1-3_c2-32_k2-3_c3-64_k3-2`
+- `arena_final = 24576`
+- `macs = 2187264`
+- `workstation_avg_us = 52.9821`
+- `mcu_avg_us = 46547.7`
+- `sample_count = 10`
+- `attempts = 1`
+
+Artefatos temporarios usados para validacao:
+
+- CSV bruto: `/tmp/phase1-image-classification-pilot.csv`
+- CSV limpo com apenas a execucao valida: `/tmp/phase1-image-classification-pilot-clean.csv`
+- relatorio: `/tmp/phase1-image-classification-pilot-clean.md`
+
+Observacao importante:
+
+- durante o teste, o gerador substituiu temporariamente os arquivos de modelo em `cpp-project/tflite-test/model/`
+- ao final, esses arquivos foram restaurados para o fixture versionado de sanity test
+- portanto o estado rastreado do firmware voltou a apontar para `testdata/sanity-model/model_quant.tflite`
+
+
+## Escalonamento da Fase 1 para 8 variantes
+
+Depois do piloto unitario, a Fase 1 foi escalada para um lote real com `8` variantes da familia `image_classification`.
+
+Fluxo executado:
+
+- `python python_scripts/phase1/build_ic_variants.py --limit 8`
+- `python python_scripts/phase1/quantize_ic_variants.py --limit 8`
+- `python python_scripts/phase1/build_ic_profiling_dataset.py`
+- `python python_scripts/phase1/make_ic_suite_manifest.py --limit 8`
+- `python python_scripts/experiments/run_benchmark_suite.py artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.csv`
+- `python python_scripts/experiments/analyze_benchmark_suite.py artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.csv artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.md`
+
+Artefatos produzidos nesse lote:
+
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.csv`
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.md`
+
+Status final do lote:
+
+- `8/8` entradas com `status = ok`
+- nenhuma falha registrada
+
+Metricas resumidas do relatorio:
+
+- `MACs vs MCU avg us = 0.9977`
+- `Workstation avg us vs MCU avg us = 0.4086`
+- `Arena estimada vs arena final = 1.0000`
+
+Faixas observadas:
+
+- `MACs`: `2187264` ate `4063232`
+- `mcu_avg_us`: `46549.8` ate `74051.0`
+- `arena_final`: `24576` ou `25088`
+
+Leitura pratica desse resultado:
+
+- para esse subconjunto de `8` modelos, `MACs` ja se mostrou um proxy muito forte para a latencia real na MCU
+- o tempo no workstation nao acompanhou a MCU tao bem quanto `MACs`
+- o estimador de arena foi coerente com a arena final usada durante a coleta
+
+Ao final desse lote, os arquivos de firmware do `cpp-project` foram restaurados novamente para o fixture versionado de sanity test.
+
 ## Documentacao produzida ou atualizada hoje
 
 Documentos existentes ou produzidos nesta sessao que agora fazem parte do contexto:
@@ -306,6 +459,7 @@ Documentos existentes ou produzidos nesta sessao que agora fazem parte do contex
 - `docs/relatorio-ajustes-automator.md`
 - `docs/tflite-recuperado-ajustes-e-uso.md`
 - `docs/requirements.txt`
+- `docs/fase1-image-classification.md`
 
 Esses arquivos cobrem:
 
@@ -315,6 +469,7 @@ Esses arquivos cobrem:
 - relatorio dos ajustes para o `automator.py`
 - explicacao especifica sobre o `.tflite` recuperado
 - snapshot das dependencias Python
+- organizacao da Fase 1 para reproducao de `image_classification`
 
 ## Higiene de repositorio realizada
 
@@ -344,10 +499,26 @@ Commits produzidos nesta sessao:
 
 ## Estado atual do git
 
-No fim desta etapa, o estado esperado do repositorio e:
+No ponto atual de parada, o repositorio nao esta limpo.
 
-- alteracoes relevantes desta sessao ja commitadas
-- `assets/` ainda fora do versionamento
+Estado observado:
+
+- alteracoes locais em `.gitignore`
+- alteracoes locais em `docs/context.md`
+- arquivos novos ainda nao commitados em:
+  - `configs/`
+  - `docs/fase1-image-classification.md`
+  - `python_scripts/phase1/`
+  - `external/`
+  - `datasets/`
+  - `artifacts/`
+- `assets/` continua fora do versionamento
+
+Importante:
+
+- os diretorios `external/`, `datasets/` e `artifacts/` foram criados de forma intencional para a Fase 1
+- parte do conteudo gerado dentro deles e ignorada no Git, mas os `README.md` e a estrutura-base ainda estao pendentes de decisao de commit
+- os resultados do lote de `8` variantes ja existem localmente em `artifacts/phase1_image_classification/generated/results/`
 
 ## Como retomar rapidamente em uma proxima sessao
 
@@ -374,6 +545,19 @@ python automator.py \
   --skip-deploy
 ```
 
+Se a proxima sessao for continuar a reproducao do artigo pela Fase 1, o caminho mais curto e:
+
+```bash
+source .venv/bin/activate
+python python_scripts/phase1/build_ic_variants.py --dry-run
+python python_scripts/phase1/build_ic_variants.py --limit 16
+python python_scripts/phase1/quantize_ic_variants.py --limit 16
+python python_scripts/phase1/build_ic_profiling_dataset.py
+python python_scripts/phase1/make_ic_suite_manifest.py --limit 16
+python python_scripts/experiments/run_benchmark_suite.py   artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.csv
+python python_scripts/experiments/analyze_benchmark_suite.py   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.csv   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.md
+```
+
 ## Resumo curto para retomada
 
 O contexto essencial para a proxima sessao e:
@@ -384,5 +568,10 @@ O contexto essencial para a proxima sessao e:
 - existe um `.tflite` recuperado e versionado para sanity test
 - existe um dataset `.bin` versionado e deterministico
 - a FRDM-MCXN947 foi detectada e respondeu ao profiling
+- a Fase 1 de `image_classification` ja foi estruturada e executada em piloto
+- o piloto da Fase 1 compilou, gravou e mediu na placa com sucesso
+- um lote de `8` variantes ja foi medido com `8/8` sucessos
+- ja existe um relatorio parcial com correlacao forte entre `MACs` e latencia na MCU
+- o proximo passo natural e ampliar de `8` para `16`, `32` ou a grade completa de `96`
 - os commits principais desta sessao ja foram criados
 - `assets/` continua fora do versionamento

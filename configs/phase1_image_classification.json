@@ -1,0 +1,62 @@
+{
+  "family": "image_classification",
+  "source_reference": {
+    "paper": "../mestrado/TG2_BrunoSilveira/TG2_Bruno_Silveira.pdf",
+    "mlcommons_repo": "https://github.com/mlcommons/tiny",
+    "mlcommons_subdir": "benchmark/training/image_classification",
+    "dataset_url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz"
+  },
+  "model": {
+    "input_shape": [
+      32,
+      32,
+      3
+    ],
+    "num_classes": 10,
+    "pool_size": 2,
+    "padding": "same"
+  },
+  "grid": {
+    "channels_1": [
+      16,
+      24
+    ],
+    "kernel_1": [
+      3,
+      4
+    ],
+    "channels_2": [
+      32,
+      48
+    ],
+    "kernel_2": [
+      3,
+      4
+    ],
+    "channels_3": [
+      64,
+      96,
+      128
+    ],
+    "kernel_3": [
+      2,
+      3
+    ]
+  },
+  "quantization": {
+    "representative_samples": 100,
+    "inference_input_type": "int8",
+    "inference_output_type": "int8"
+  },
+  "profiling_dataset": {
+    "split": "test",
+    "samples_per_class": 1,
+    "output_dtype": "float32",
+    "value_mode": "raw_uint8_as_float32"
+  },
+  "paths": {
+    "mlcommons_root": "external/mlcommons-tiny",
+    "dataset_root": "datasets/cifar-10-batches-py",
+    "artifact_root": "artifacts/phase1_image_classification/generated"
+  }
+}
