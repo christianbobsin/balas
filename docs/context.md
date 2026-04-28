@@ -499,26 +499,19 @@ Commits produzidos nesta sessao:
 
 ## Estado atual do git
 
-No ponto atual de parada, o repositorio nao esta limpo.
+No ponto atual de parada, o repositorio esta limpo do ponto de vista dos arquivos rastreados.
 
 Estado observado:
 
-- alteracoes locais em `.gitignore`
-- alteracoes locais em `docs/context.md`
-- arquivos novos ainda nao commitados em:
-  - `configs/`
-  - `docs/fase1-image-classification.md`
-  - `python_scripts/phase1/`
-  - `external/`
-  - `datasets/`
-  - `artifacts/`
+- nenhum arquivo rastreado pendente de commit
 - `assets/` continua fora do versionamento
+- os artefatos gerados em `artifacts/phase1_image_classification/generated/` continuam locais e ignorados
 
 Importante:
 
-- os diretorios `external/`, `datasets/` e `artifacts/` foram criados de forma intencional para a Fase 1
-- parte do conteudo gerado dentro deles e ignorada no Git, mas os `README.md` e a estrutura-base ainda estao pendentes de decisao de commit
-- os resultados do lote de `8` variantes ja existem localmente em `artifacts/phase1_image_classification/generated/results/`
+- o commit da estrutura reutilizavel da Fase 1 ja foi criado
+- o firmware em `cpp-project/tflite-test/model/` foi restaurado para o fixture base de sanity ao fim das medicoes
+- o estado atual do workspace e adequado para retomar novos benchmarks sem carregar a ultima variante executada
 
 ## Como retomar rapidamente em uma proxima sessao
 
@@ -550,13 +543,66 @@ Se a proxima sessao for continuar a reproducao do artigo pela Fase 1, o caminho 
 ```bash
 source .venv/bin/activate
 python python_scripts/phase1/build_ic_variants.py --dry-run
-python python_scripts/phase1/build_ic_variants.py --limit 16
-python python_scripts/phase1/quantize_ic_variants.py --limit 16
+python python_scripts/phase1/build_ic_variants.py --limit 32
+python python_scripts/phase1/quantize_ic_variants.py --limit 32
 python python_scripts/phase1/build_ic_profiling_dataset.py
-python python_scripts/phase1/make_ic_suite_manifest.py --limit 16
-python python_scripts/experiments/run_benchmark_suite.py   artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.csv
-python python_scripts/experiments/analyze_benchmark_suite.py   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.csv   artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.md
+python python_scripts/phase1/make_ic_suite_manifest.py --limit 32
+python python_scripts/experiments/run_benchmark_suite.py \
+  artifacts/phase1_image_classification/generated/manifests/image-classification-suite.json \
+  artifacts/phase1_image_classification/generated/results/phase1-image-classification-32.csv
+python python_scripts/experiments/analyze_benchmark_suite.py \
+  artifacts/phase1_image_classification/generated/results/phase1-image-classification-32.csv \
+  artifacts/phase1_image_classification/generated/results/phase1-image-classification-32.md
 ```
+
+## Atualizacao da Fase 1
+
+Desde o estado anterior deste contexto, a Fase 1 de `image_classification` avancou para um fluxo reutilizavel e ja validado em lotes maiores.
+
+Commit novo relevante:
+
+- `ecdc22f` `Add phase 1 image-classification reproduction workflow`
+
+Esse commit consolidou:
+
+- `configs/phase1_image_classification.json`
+- `python_scripts/phase1/` com scripts para fetch, geracao, quantizacao, dataset de profiling e manifesto
+- `docs/fase1-image-classification.md`
+- `external/README.md`
+- `datasets/README.md`
+- `artifacts/README.md`
+- `artifacts/phase1_image_classification/README.md`
+
+Execucoes ja realizadas localmente:
+
+- lote de `8` variantes concluido e analisado
+- lote de `16` variantes concluido com `16/16` sucessos
+- lote de `32` variantes concluido com `32/32` sucessos
+
+Arquivos de resultado hoje:
+
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.csv`
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-8.md`
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-16.csv`
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-32.csv`
+- `artifacts/phase1_image_classification/generated/results/phase1-image-classification-32.md`
+
+Observacao critica sobre o lote de `32`:
+
+- a execucao fechou com `32/32` sucessos operacionais
+- o CSV de `32` contem dois outliers de latencia da MCU claramente invalidos para analise estatistica
+- isso distorceu as correlacoes do relatorio de `32`
+
+Outliers detectados:
+
+- `ic_c1-16_k1-3_c2-48_k2-4_c3-128_k3-2` com `mcu_avg_us = 163803498.6`
+- `ic_c1-16_k1-4_c2-32_k2-3_c3-96_k3-2` com `mcu_avg_us = -161010189.8`
+
+Interpretacao pratica:
+
+- o pipeline de compilacao, deploy e coleta serial esta funcional
+- o conjunto de `32` modelos foi de fato executado na placa
+- antes de usar o lote de `32` para conclusoes de correlacao, o correto e rerodar apenas essas `2` variantes e substituir as linhas invalidas
 
 ## Resumo curto para retomada
 
@@ -571,7 +617,9 @@ O contexto essencial para a proxima sessao e:
 - a Fase 1 de `image_classification` ja foi estruturada e executada em piloto
 - o piloto da Fase 1 compilou, gravou e mediu na placa com sucesso
 - um lote de `8` variantes ja foi medido com `8/8` sucessos
-- ja existe um relatorio parcial com correlacao forte entre `MACs` e latencia na MCU
-- o proximo passo natural e ampliar de `8` para `16`, `32` ou a grade completa de `96`
-- os commits principais desta sessao ja foram criados
+- um lote de `16` variantes ja foi medido com `16/16` sucessos
+- um lote de `32` variantes ja foi medido com `32/32` sucessos operacionais
+- o relatorio de `32` esta contaminado por `2` outliers de `mcu_avg_us` e precisa de rerun pontual
+- o proximo passo natural e rerodar essas `2` variantes, corrigir o CSV e so entao recalcular as correlacoes
+- os commits principais desta sessao ja foram criados, incluindo `ecdc22f`
 - `assets/` continua fora do versionamento
