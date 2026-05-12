@@ -16,3 +16,5 @@ external/mlcommons-tiny/
 datasets/downloads/
 datasets/cifar-10-batches-py/
 artifacts/phase1_image_classification/generated/
+assets/*.zip
+assets/*.crdownload

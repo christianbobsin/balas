@@ -6,7 +6,7 @@ Documento criado em 2026-04-27 para registrar se as placas avaliadas possuem pon
 
 | Placa | Medicao direta na placa | Ponto de medicao | Observacao |
 | --- | --- | --- | --- |
-| NXP FRDM-MCXN947 | Sim | J24 / IDD_MCU | Mede a corrente no rail P3V3_MCU do MCU. |
+| NXP FRDM-MCXN947 | Sim | J24 / IDD_MCU | Mede a corrente que entra em `P3V3_MCU`, rail usado para alimentar os dominios do MCU na configuracao padrao. |
 | ST Nucleo-H723ZG | Sim | JP4 / IDD | Mede a corrente IDD do STM32H723 no VDD_MCU. |
 | Nordic nRF5340 DK | Sim | P22 / VDD e P23 / VDDH | Requer abrir SB40/SB41 ou inserir instrumento em serie conforme a configuracao. |
 | Nordic nRF52840 DK | Sim | P22 / VDD e P23 / VDDH | Requer abrir SB40/SB41 ou inserir instrumento em serie conforme a configuracao. |
@@ -59,14 +59,24 @@ Links de consulta:
 
 ## NXP FRDM-MCXN947
 
-A FRDM-MCXN947 possui medicao direta do consumo do MCU pelo ponto `J24 / IDD_MCU`, associado ao rail `P3V3_MCU`.
+A FRDM-MCXN947 possui medicao direta do consumo do MCU pelo ponto `J24 / IDD_MCU`, associado ao rail `P3V3_MCU`. Na documentacao do MCUXpresso SDK para o exemplo `power_manager_test`, a NXP indica duas formas de medir a potencia/corrente do MCU: conectar um amperimetro ao conector `J24` ou conectar o `J24` ao MCU-Link Debug Probe e usar a funcao de medicao de energia do MCUXpresso IDE.
+
+Mapeamento do ponto de medicao:
+
+| Sinal | Ponto na FRDM-MCXN947 | Observacao |
+| --- | --- | --- |
+| `IDD_IN` | `J24-1` | Entrada da corrente para o rail do MCU. |
+| `IDD_OUT` | `J24-2` | Saida da corrente apos o instrumento de medicao. |
+| `VSS` | `J10-4` | Referencia de terra usada pelo MCU-Link Debug Probe. |
 
 Procedimento tipico:
 
-1. Remover/abrir o caminho de alimentacao normal do ponto de medicao, conforme a configuracao de jumper/shunt da placa.
-2. Inserir o instrumento de corrente em serie em `J24 / IDD_MCU`.
+1. Remover o jumper/short de `J24`.
+2. Inserir o amperimetro em serie entre `J24-1` (`IDD_IN`) e `J24-2` (`IDD_OUT`).
 3. Medir a corrente do rail do MCU.
 4. Calcular potencia usando a tensao do rail, tipicamente `3.3 V` para `P3V3_MCU`.
+
+Essa medicao nao deve ser feita no USB, em `P5V0` ou em `P3V3` geral se o objetivo for isolar apenas o consumo do microcontrolador, pois esses pontos tambem incluem outros circuitos da placa, como reguladores, LEDs, interfaces, sensores e o MCU-Link. Se a placa tiver sido modificada para alimentar separadamente `VDD_ANA`, `VDD_BAT`, `VDD_USB` ou `VDD_CORE_SYS`, confirme no esquematico se todos os dominios relevantes ainda passam por `J24`; caso contrario, a corrente total do MCU precisa ser reconstruida pela soma das medicoes dos ramos separados.
 
 Observacao: o site da NXP lista o arquivo `FRDM-MCXN947 Schematics`, codigo `90818-MCXN947SH`, como "Account Required". O PDF local foi baixado de um anexo publico no dominio da NXP Community.
 
