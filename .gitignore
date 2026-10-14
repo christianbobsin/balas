@@ -25,3 +25,11 @@ assets/*.zip
 assets/*.crdownload
 cpp-project/stm32-tflite-test/build*/
 cpp-project/nrf52840-tflite-test/build*/
+
+# Ferramentas locais e caches de analise; os grafos e relatórios sao versionados.
+.serena/
+**/graphify-out/cache/
+**/graphify-out/.graphify_python
+**/graphify-out/.graphify_root
+**/graphify-out/.graphify_incremental.json
+**/graphify-out/.vocab.txt
