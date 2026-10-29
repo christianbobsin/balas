@@ -8,6 +8,129 @@ import serial
 from python_scripts.config import default_serial_port
 
 DEFAULT_SERIAL_TIMEOUT_SEC = float(os.environ.get("BALAS_SERIAL_TIMEOUT_SEC", "60"))
+DEFAULT_SERIAL_MAX_RETRIES = int(os.environ.get("BALAS_SERIAL_MAX_RETRIES", "3"))
+
+# Framed reply sent by the NXP firmware: SYNC + int32 (little-endian) + XOR checksum
+FRAME_SYNC = b"\xA5\x5A"
+FRAME_PAYLOAD_LEN = 5
+# Time to wait after an unframed reply to detect trailing (misaligned) bytes
+TRAILING_BYTES_WAIT_SEC = 0.02
+
+
+class InvalidReplyError(RuntimeError):
+    """The device reply was misaligned, corrupted or implausible."""
+
+
+def target_uses_framing(target: str | None = None) -> bool:
+    target = target or os.environ.get("BALAS_TARGET", "nxp")
+    return target == "nxp"
+
+
+def parse_framed_reply(payload: bytes) -> int:
+    """
+    Decodes the 5 bytes that follow FRAME_SYNC: int32 (little-endian) + XOR checksum.
+    """
+    value_bytes, checksum = payload[:4], payload[4]
+    expected = value_bytes[0] ^ value_bytes[1] ^ value_bytes[2] ^ value_bytes[3]
+    if checksum != expected:
+        raise InvalidReplyError(
+            f"Checksum mismatch in reply {payload.hex()} (expected {expected:#04x})"
+        )
+    return int.from_bytes(value_bytes, byteorder='little', signed=True)
+
+
+class SerialLink:
+    """
+    Keeps one serial connection open for a batch of inferences.
+
+    Each measurement discards stale input, sends the sample and reads the int32
+    reply. On the NXP target the reply is framed (FRAME_SYNC + int32 + checksum),
+    so stray bytes are skipped and corrupted replies are detected. On the other
+    targets the bare int32 is read and checked for trailing bytes. Invalid replies
+    are re-measured up to `max_retries` times.
+    """
+
+    def __init__(
+        self,
+        port_name: str,
+        timeout: float = DEFAULT_SERIAL_TIMEOUT_SEC,
+        max_retries: int = DEFAULT_SERIAL_MAX_RETRIES,
+        framed: bool | None = None,
+    ):
+        self.port_name = port_name
+        self.timeout = timeout
+        self.max_retries = max_retries
+        self.framed = target_uses_framing() if framed is None else framed
+        self.ser = None
+
+    def __enter__(self):
+        self.ser = serial.Serial(
+            port=self.port_name,
+            baudrate=115200,
+            timeout=self.timeout,
+            rtscts=os.environ.get("BALAS_TARGET") == "nordic",
+        )
+        configure_nordic_vcom(self.ser)
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        self.ser.close()
+        self.ser = None
+
+    def measure(self, payload: bytes) -> int:
+        """Sends one input payload and returns the validated int32 reply."""
+        for attempt in range(self.max_retries + 1):
+            self.ser.reset_input_buffer()
+            self.ser.write(payload)
+            self.ser.flush()
+            try:
+                value = self._read_framed() if self.framed else self._read_unframed()
+                self._check_plausible(value)
+                return value
+            except InvalidReplyError as e:
+                print(f"⚠️  Invalid reply (attempt {attempt + 1}/{self.max_retries + 1}): {e}")
+        raise InvalidReplyError(
+            f"No valid reply from {self.port_name} after {self.max_retries + 1} attempts"
+        )
+
+    def _read_exact(self, n_bytes: int) -> bytes:
+        data = self.ser.read(n_bytes)
+        if len(data) != n_bytes:
+            raise TimeoutError(f"Did not receive {n_bytes} bytes from device")
+        return data
+
+    def _read_framed(self) -> int:
+        # Scan for the sync header, skipping any stray bytes before it
+        deadline = time.monotonic() + self.timeout
+        window = b""
+        skipped = 0
+        while window != FRAME_SYNC:
+            if time.monotonic() > deadline:
+                raise TimeoutError("Did not receive a framed reply from device")
+            byte = self.ser.read(1)
+            if not byte:
+                continue
+            window = (window + byte)[-len(FRAME_SYNC):]
+            skipped += 1
+        skipped -= len(FRAME_SYNC)
+        if skipped:
+            print(f"⚠️  Skipped {skipped} stray byte(s) before reply header")
+        return parse_framed_reply(self._read_exact(FRAME_PAYLOAD_LEN))
+
+    def _read_unframed(self) -> int:
+        resp_bytes = self._read_exact(4)
+        # Extra bytes after the reply mean the 4 bytes read were not aligned
+        time.sleep(TRAILING_BYTES_WAIT_SEC)
+        if self.ser.in_waiting:
+            extra = self.ser.read(self.ser.in_waiting)
+            raise InvalidReplyError(
+                f"Misaligned reply {resp_bytes.hex()} followed by {extra.hex()}"
+            )
+        return int.from_bytes(resp_bytes, byteorder='little', signed=True)
+
+    def _check_plausible(self, value: int) -> None:
+        if value < 0 or value > self.timeout * 1_000_000:
+            raise InvalidReplyError(f"Implausible inference time {value} us")
 
 
 def configure_nordic_vcom(ser: serial.Serial) -> None:
@@ -41,6 +164,7 @@ def load_bin_dir_as_f32_list(dir_path):
 def send_array_and_get_int(port_name, array: np.ndarray) -> int:
     """
     Sends a float32 numpy array via serial and reads a signed int32 response.
+    Opens a new connection per call; prefer measure_arrays() for batches.
 
     Parameters:
         port_name (str): Serial port device name (e.g., "/dev/ttyUSB0").
@@ -49,39 +173,28 @@ def send_array_and_get_int(port_name, array: np.ndarray) -> int:
     Returns:
         int: The signed int32 received from the device.
     """
-    if array.dtype != np.float32:
-        raise ValueError("Array must be of dtype float32")
+    return measure_arrays(port_name, [array])[0]
 
-    # Open serial port
-    with serial.Serial(
-        port=port_name,
-        baudrate=115200,
-        timeout=DEFAULT_SERIAL_TIMEOUT_SEC,
-        rtscts=os.environ.get("BALAS_TARGET") == "nordic",
-    ) as ser:
-        configure_nordic_vcom(ser)
-        # Send the array as raw bytes
-        ser.write(array.tobytes())
-        ser.flush()
+def measure_arrays(port_name, arrays) -> list[int]:
+    """
+    Sends each float32 numpy array over a single serial connection and returns
+    the int32 reply (inference time in us) for each one.
+    """
+    for array in arrays:
+        if array.dtype != np.float32:
+            raise ValueError("Array must be of dtype float32")
 
-        # Read 4 bytes for signed int32
-        resp_bytes = ser.read(4)
-        if len(resp_bytes) != 4:
-            raise RuntimeError("Did not receive 4 bytes from device")
-
-        # Convert bytes to int32
-        resp_int = int.from_bytes(resp_bytes, byteorder='little', signed=True)
-        return resp_int
+    with SerialLink(port_name) as link:
+        return [link.measure(array.tobytes()) for array in arrays]
 
 def send_profiling_inputs(serial_port, profiling_dir):
     f32_inputs = load_bin_dir_as_f32_list(profiling_dir)
     inference_times = []
-    count = 1
-    for f32_input in f32_inputs:
-        inference_time_us = send_array_and_get_int(serial_port, f32_input)
-        inference_times.append(inference_time_us)
-        print(f"Inference {count}/{len(f32_inputs)}: {inference_time_us} us")
-        count += 1
+    with SerialLink(serial_port) as link:
+        for count, f32_input in enumerate(f32_inputs, start=1):
+            inference_time_us = link.measure(f32_input.tobytes())
+            inference_times.append(inference_time_us)
+            print(f"Inference {count}/{len(f32_inputs)}: {inference_time_us} us")
     return inference_times
 
 
@@ -104,26 +217,8 @@ def send_random_input_and_get_result(model_path: str, serial_port: str) -> int:
     payload = struct.pack('<' + 'f' * input_size, *data)
 
     print(f"Sending {input_shape} float values. {len(payload)} bytes")
-    # Open serial
-    with serial.Serial(
-        serial_port,
-        baudrate=115200,
-        timeout=DEFAULT_SERIAL_TIMEOUT_SEC,
-        rtscts=os.environ.get("BALAS_TARGET") == "nordic",
-    ) as ser:
-        configure_nordic_vcom(ser)
-        # Send payload
-        ser.write(payload)
-        ser.flush()
-
-        # Wait for 1 integer (4 bytes, little-endian)
-        resp = ser.read(4)
-        if len(resp) < 4:
-            raise TimeoutError("Did not receive full response from MCU")
-
-        result = struct.unpack('<i', resp)[0]  # signed int32
-
-    return result
+    with SerialLink(serial_port) as link:
+        return link.measure(payload)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

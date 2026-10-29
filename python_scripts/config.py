@@ -100,3 +100,28 @@ def find_stm32tflm() -> str | None:
                 return match
 
     return None
+
+
+def find_neutron_compiler() -> str | None:
+    """Resolve o executável neutron-compiler do eIQ Neutron SDK.
+
+    Ordem de resolução:
+    1. Variável de ambiente NEUTRON_COMPILER (configurável em .balas.env).
+    2. ``neutron-compiler`` disponível no PATH do sistema.
+    3. Caminho estático padrão dentro do repositório (external/eiq-neutron/neutron-compiler).
+
+    Retorna None se nenhum candidato for encontrado.
+    """
+    configured = env_path("NEUTRON_COMPILER")
+    if configured and Path(configured).is_file():
+        return configured
+
+    found = shutil.which("neutron-compiler")
+    if found:
+        return found
+
+    static = repo_root() / "external/eiq-neutron/neutron-compiler"
+    if static.is_file():
+        return str(static)
+
+    return None

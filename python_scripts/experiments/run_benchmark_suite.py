@@ -31,7 +31,7 @@ from python_scripts.experiments.common import (
     resolve_path,
 )
 from python_scripts.mac_calculator.mac_calculator import count_macs
-from python_scripts.profiler.profiler import send_array_and_get_int
+from python_scripts.profiler.profiler import measure_arrays
 
 
 CSV_FIELDNAMES = [
@@ -150,11 +150,8 @@ def measure_mcu_latency(
     dataset_path: Path,
 ) -> tuple[float, float, int, float]:
     samples = iter_dataset_arrays(dataset_path)
-    durations_us = []
-
     start = time.perf_counter_ns()
-    for _, sample in samples:
-        durations_us.append(send_array_and_get_int(serial_device, sample))
+    durations_us = measure_arrays(serial_device, [sample for _, sample in samples])
     end = time.perf_counter_ns()
 
     return (

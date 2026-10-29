@@ -33,3 +33,4 @@ cpp-project/nrf52840-tflite-test/build*/
 **/graphify-out/.graphify_root
 **/graphify-out/.graphify_incremental.json
 **/graphify-out/.vocab.txt
+external/eiq-neutron/neutron-compiler

@@ -1,0 +1,1136 @@
+{
+  "3a2bdfb003f2": {
+    "hash_id": "3a2bdfb003f2",
+    "hyperparameters": [
+      32,
+      96,
+      192,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-32_channels_2-96_channels_3-192_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 96,
+      "channels_3": 192,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 0
+  },
+  "4be9a7180c80": {
+    "hash_id": "4be9a7180c80",
+    "hyperparameters": [
+      48,
+      32,
+      32,
+      5,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-48_channels_2-32_channels_3-32_kernel_1-5_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 32,
+      "channels_3": 32,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 1
+  },
+  "0ed08bae71f5": {
+    "hash_id": "0ed08bae71f5",
+    "hyperparameters": [
+      8,
+      96,
+      112,
+      3,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-8_channels_2-96_channels_3-112_kernel_1-3_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 96,
+      "channels_3": 112,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 2
+  },
+  "e47b164ec167": {
+    "hash_id": "e47b164ec167",
+    "hyperparameters": [
+      24,
+      24,
+      48,
+      3,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-24_channels_2-24_channels_3-48_kernel_1-3_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 24,
+      "channels_2": 24,
+      "channels_3": 48,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 3
+  },
+  "9f49593d83ca": {
+    "hash_id": "9f49593d83ca",
+    "hyperparameters": [
+      12,
+      48,
+      256,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-12_channels_2-48_channels_3-256_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 12,
+      "channels_2": 48,
+      "channels_3": 256,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 4
+  },
+  "12b3e3ee2214": {
+    "hash_id": "12b3e3ee2214",
+    "hyperparameters": [
+      48,
+      64,
+      128,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-48_channels_2-64_channels_3-128_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 64,
+      "channels_3": 128,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 5
+  },
+  "91cf662a1238": {
+    "hash_id": "91cf662a1238",
+    "hyperparameters": [
+      12,
+      40,
+      192,
+      5,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-12_channels_2-40_channels_3-192_kernel_1-5_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 12,
+      "channels_2": 40,
+      "channels_3": 192,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 6
+  },
+  "195518ad564b": {
+    "hash_id": "195518ad564b",
+    "hyperparameters": [
+      24,
+      16,
+      160,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-24_channels_2-16_channels_3-160_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 24,
+      "channels_2": 16,
+      "channels_3": 160,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 7
+  },
+  "45cf5bd1533b": {
+    "hash_id": "45cf5bd1533b",
+    "hyperparameters": [
+      16,
+      48,
+      48,
+      5,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-16_channels_2-48_channels_3-48_kernel_1-5_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 16,
+      "channels_2": 48,
+      "channels_3": 48,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 8
+  },
+  "b3e88f25b8bc": {
+    "hash_id": "b3e88f25b8bc",
+    "hyperparameters": [
+      48,
+      24,
+      160,
+      5,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-48_channels_2-24_channels_3-160_kernel_1-5_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 24,
+      "channels_3": 160,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 9
+  },
+  "a8f11f9252ed": {
+    "hash_id": "a8f11f9252ed",
+    "hyperparameters": [
+      12,
+      48,
+      80,
+      5,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-12_channels_2-48_channels_3-80_kernel_1-5_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 12,
+      "channels_2": 48,
+      "channels_3": 80,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 10
+  },
+  "a251586b5f24": {
+    "hash_id": "a251586b5f24",
+    "hyperparameters": [
+      48,
+      64,
+      128,
+      5,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-48_channels_2-64_channels_3-128_kernel_1-5_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 64,
+      "channels_3": 128,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 11
+  },
+  "21fce59e2168": {
+    "hash_id": "21fce59e2168",
+    "hyperparameters": [
+      32,
+      64,
+      112,
+      3,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-32_channels_2-64_channels_3-112_kernel_1-3_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 64,
+      "channels_3": 112,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 12
+  },
+  "bf384e335da7": {
+    "hash_id": "bf384e335da7",
+    "hyperparameters": [
+      40,
+      40,
+      32,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-40_channels_2-40_channels_3-32_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 40,
+      "channels_2": 40,
+      "channels_3": 32,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 13
+  },
+  "48462f8f9975": {
+    "hash_id": "48462f8f9975",
+    "hyperparameters": [
+      32,
+      80,
+      112,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-32_channels_2-80_channels_3-112_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 80,
+      "channels_3": 112,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 14
+  },
+  "19e28b97612b": {
+    "hash_id": "19e28b97612b",
+    "hyperparameters": [
+      48,
+      96,
+      112,
+      5,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-48_channels_2-96_channels_3-112_kernel_1-5_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 96,
+      "channels_3": 112,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 15
+  },
+  "19c0b3d39022": {
+    "hash_id": "19c0b3d39022",
+    "hyperparameters": [
+      64,
+      32,
+      48,
+      5,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-64_channels_2-32_channels_3-48_kernel_1-5_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 64,
+      "channels_2": 32,
+      "channels_3": 48,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 16
+  },
+  "fff757344d3e": {
+    "hash_id": "fff757344d3e",
+    "hyperparameters": [
+      48,
+      80,
+      32,
+      5,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-48_channels_2-80_channels_3-32_kernel_1-5_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 80,
+      "channels_3": 32,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 17
+  },
+  "0cc5e80665e8": {
+    "hash_id": "0cc5e80665e8",
+    "hyperparameters": [
+      20,
+      48,
+      48,
+      3,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-20_channels_2-48_channels_3-48_kernel_1-3_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 20,
+      "channels_2": 48,
+      "channels_3": 48,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 18
+  },
+  "0c4deb9b6d4f": {
+    "hash_id": "0c4deb9b6d4f",
+    "hyperparameters": [
+      48,
+      24,
+      256,
+      5,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-48_channels_2-24_channels_3-256_kernel_1-5_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 24,
+      "channels_3": 256,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 19
+  },
+  "22596f0f09af": {
+    "hash_id": "22596f0f09af",
+    "hyperparameters": [
+      24,
+      80,
+      32,
+      5,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-24_channels_2-80_channels_3-32_kernel_1-5_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 24,
+      "channels_2": 80,
+      "channels_3": 32,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 20
+  },
+  "afc9ae283e3e": {
+    "hash_id": "afc9ae283e3e",
+    "hyperparameters": [
+      32,
+      24,
+      96,
+      5,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-32_channels_2-24_channels_3-96_kernel_1-5_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 24,
+      "channels_3": 96,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 21
+  },
+  "49acb1e417be": {
+    "hash_id": "49acb1e417be",
+    "hyperparameters": [
+      32,
+      24,
+      80,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-32_channels_2-24_channels_3-80_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 24,
+      "channels_3": 80,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 22
+  },
+  "7c647eb69d9f": {
+    "hash_id": "7c647eb69d9f",
+    "hyperparameters": [
+      8,
+      40,
+      128,
+      5,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-8_channels_2-40_channels_3-128_kernel_1-5_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 40,
+      "channels_3": 128,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 23
+  },
+  "17dadf779254": {
+    "hash_id": "17dadf779254",
+    "hyperparameters": [
+      8,
+      32,
+      160,
+      3,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-8_channels_2-32_channels_3-160_kernel_1-3_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 32,
+      "channels_3": 160,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 24
+  },
+  "b26a2df2e64d": {
+    "hash_id": "b26a2df2e64d",
+    "hyperparameters": [
+      16,
+      64,
+      48,
+      5,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-16_channels_2-64_channels_3-48_kernel_1-5_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 16,
+      "channels_2": 64,
+      "channels_3": 48,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 25
+  },
+  "2989058a7317": {
+    "hash_id": "2989058a7317",
+    "hyperparameters": [
+      20,
+      40,
+      96,
+      3,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-20_channels_2-40_channels_3-96_kernel_1-3_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 20,
+      "channels_2": 40,
+      "channels_3": 96,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 26
+  },
+  "01c7ef6cdd2b": {
+    "hash_id": "01c7ef6cdd2b",
+    "hyperparameters": [
+      20,
+      40,
+      112,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-20_channels_2-40_channels_3-112_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 20,
+      "channels_2": 40,
+      "channels_3": 112,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 27
+  },
+  "2f975f376d5b": {
+    "hash_id": "2f975f376d5b",
+    "hyperparameters": [
+      8,
+      24,
+      32,
+      3,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-8_channels_2-24_channels_3-32_kernel_1-3_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 24,
+      "channels_3": 32,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 28
+  },
+  "0677eb5bc27d": {
+    "hash_id": "0677eb5bc27d",
+    "hyperparameters": [
+      40,
+      16,
+      80,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-40_channels_2-16_channels_3-80_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 40,
+      "channels_2": 16,
+      "channels_3": 80,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 29
+  },
+  "49992324c6a3": {
+    "hash_id": "49992324c6a3",
+    "hyperparameters": [
+      8,
+      32,
+      32,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-8_channels_2-32_channels_3-32_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 32,
+      "channels_3": 32,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 30
+  },
+  "4fe86b66d263": {
+    "hash_id": "4fe86b66d263",
+    "hyperparameters": [
+      24,
+      16,
+      96,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-24_channels_2-16_channels_3-96_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 24,
+      "channels_2": 16,
+      "channels_3": 96,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 31
+  },
+  "79dff51e606b": {
+    "hash_id": "79dff51e606b",
+    "hyperparameters": [
+      40,
+      64,
+      80,
+      5,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-40_channels_2-64_channels_3-80_kernel_1-5_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 40,
+      "channels_2": 64,
+      "channels_3": 80,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 32
+  },
+  "3d40d6b57c07": {
+    "hash_id": "3d40d6b57c07",
+    "hyperparameters": [
+      20,
+      16,
+      64,
+      3,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-20_channels_2-16_channels_3-64_kernel_1-3_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 20,
+      "channels_2": 16,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 33
+  },
+  "5ab3e3c7724b": {
+    "hash_id": "5ab3e3c7724b",
+    "hyperparameters": [
+      48,
+      32,
+      128,
+      5,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-48_channels_2-32_channels_3-128_kernel_1-5_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 32,
+      "channels_3": 128,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 34
+  },
+  "5f0b0ecc42cc": {
+    "hash_id": "5f0b0ecc42cc",
+    "hyperparameters": [
+      32,
+      80,
+      192,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-32_channels_2-80_channels_3-192_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 80,
+      "channels_3": 192,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 35
+  },
+  "f5d7c59fa739": {
+    "hash_id": "f5d7c59fa739",
+    "hyperparameters": [
+      32,
+      32,
+      160,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-32_channels_2-32_channels_3-160_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 32,
+      "channels_3": 160,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 36
+  },
+  "75679751a027": {
+    "hash_id": "75679751a027",
+    "hyperparameters": [
+      40,
+      80,
+      64,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-40_channels_2-80_channels_3-64_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 40,
+      "channels_2": 80,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 37
+  },
+  "cb0a7523b9fc": {
+    "hash_id": "cb0a7523b9fc",
+    "hyperparameters": [
+      64,
+      48,
+      160,
+      5,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-64_channels_2-48_channels_3-160_kernel_1-5_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 64,
+      "channels_2": 48,
+      "channels_3": 160,
+      "kernel_1": 5,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 38
+  },
+  "1b8891793f45": {
+    "hash_id": "1b8891793f45",
+    "hyperparameters": [
+      24,
+      24,
+      96,
+      3,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-24_channels_2-24_channels_3-96_kernel_1-3_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 24,
+      "channels_2": 24,
+      "channels_3": 96,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 39
+  },
+  "2e46b5d5d04b": {
+    "hash_id": "2e46b5d5d04b",
+    "hyperparameters": [
+      8,
+      16,
+      64,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-8_channels_2-16_channels_3-64_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 8,
+      "channels_2": 16,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 40
+  },
+  "9e2ff532f4e5": {
+    "hash_id": "9e2ff532f4e5",
+    "hyperparameters": [
+      48,
+      96,
+      64,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-48_channels_2-96_channels_3-64_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 96,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 41
+  },
+  "1ef04d59bad0": {
+    "hash_id": "1ef04d59bad0",
+    "hyperparameters": [
+      40,
+      96,
+      64,
+      3,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-40_channels_2-96_channels_3-64_kernel_1-3_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 40,
+      "channels_2": 96,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 42
+  },
+  "dcaee50825cf": {
+    "hash_id": "dcaee50825cf",
+    "hyperparameters": [
+      64,
+      80,
+      192,
+      5,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-64_channels_2-80_channels_3-192_kernel_1-5_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 64,
+      "channels_2": 80,
+      "channels_3": 192,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 43
+  },
+  "f28e20dc2ad5": {
+    "hash_id": "f28e20dc2ad5",
+    "hyperparameters": [
+      64,
+      64,
+      64,
+      3,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-64_channels_2-64_channels_3-64_kernel_1-3_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 64,
+      "channels_2": 64,
+      "channels_3": 64,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 44
+  },
+  "fca9d42ab15a": {
+    "hash_id": "fca9d42ab15a",
+    "hyperparameters": [
+      20,
+      96,
+      80,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-20_channels_2-96_channels_3-80_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 20,
+      "channels_2": 96,
+      "channels_3": 80,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 45
+  },
+  "b66230e02fb9": {
+    "hash_id": "b66230e02fb9",
+    "hyperparameters": [
+      64,
+      24,
+      80,
+      3,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-64_channels_2-24_channels_3-80_kernel_1-3_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 64,
+      "channels_2": 24,
+      "channels_3": 80,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 46
+  },
+  "525cb826c11d": {
+    "hash_id": "525cb826c11d",
+    "hyperparameters": [
+      16,
+      24,
+      48,
+      5,
+      5,
+      2
+    ],
+    "variant_name": "channels_1-16_channels_2-24_channels_3-48_kernel_1-5_kernel_2-5_kernel_3-2",
+    "config": {
+      "channels_1": 16,
+      "channels_2": 24,
+      "channels_3": 48,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 2
+    },
+    "iteration_index": 47
+  },
+  "3fe13bc56b52": {
+    "hash_id": "3fe13bc56b52",
+    "hyperparameters": [
+      48,
+      32,
+      80,
+      5,
+      5,
+      5
+    ],
+    "variant_name": "channels_1-48_channels_2-32_channels_3-80_kernel_1-5_kernel_2-5_kernel_3-5",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 32,
+      "channels_3": 80,
+      "kernel_1": 5,
+      "kernel_2": 5,
+      "kernel_3": 5
+    },
+    "iteration_index": 48
+  },
+  "5d681542d6b8": {
+    "hash_id": "5d681542d6b8",
+    "hyperparameters": [
+      12,
+      24,
+      96,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-12_channels_2-24_channels_3-96_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 12,
+      "channels_2": 24,
+      "channels_3": 96,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 49
+  },
+  "61e5b770486d": {
+    "hash_id": "61e5b770486d",
+    "hyperparameters": [
+      12,
+      32,
+      160,
+      3,
+      3,
+      2
+    ],
+    "variant_name": "channels_1-12_channels_2-32_channels_3-160_kernel_1-3_kernel_2-3_kernel_3-2",
+    "config": {
+      "channels_1": 12,
+      "channels_2": 32,
+      "channels_3": 160,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 2
+    },
+    "iteration_index": 50
+  },
+  "0ac7e5d4ab73": {
+    "hash_id": "0ac7e5d4ab73",
+    "hyperparameters": [
+      32,
+      24,
+      96,
+      3,
+      5,
+      3
+    ],
+    "variant_name": "channels_1-32_channels_2-24_channels_3-96_kernel_1-3_kernel_2-5_kernel_3-3",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 24,
+      "channels_3": 96,
+      "kernel_1": 3,
+      "kernel_2": 5,
+      "kernel_3": 3
+    },
+    "iteration_index": 51
+  },
+  "efa23f370130": {
+    "hash_id": "efa23f370130",
+    "hyperparameters": [
+      48,
+      16,
+      96,
+      3,
+      3,
+      3
+    ],
+    "variant_name": "channels_1-48_channels_2-16_channels_3-96_kernel_1-3_kernel_2-3_kernel_3-3",
+    "config": {
+      "channels_1": 48,
+      "channels_2": 16,
+      "channels_3": 96,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 3
+    },
+    "iteration_index": 52
+  },
+  "2c6bb85960b6": {
+    "hash_id": "2c6bb85960b6",
+    "hyperparameters": [
+      32,
+      80,
+      112,
+      3,
+      3,
+      5
+    ],
+    "variant_name": "channels_1-32_channels_2-80_channels_3-112_kernel_1-3_kernel_2-3_kernel_3-5",
+    "config": {
+      "channels_1": 32,
+      "channels_2": 80,
+      "channels_3": 112,
+      "kernel_1": 3,
+      "kernel_2": 3,
+      "kernel_3": 5
+    },
+    "iteration_index": 53
+  }
+}

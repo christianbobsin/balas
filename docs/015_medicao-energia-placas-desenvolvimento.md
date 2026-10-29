@@ -1,201 +1,138 @@
-# Medicao de energia nas tres placas de desenvolvimento
+# Medicao de energia em placas de desenvolvimento
 
-Documento criado em 2026-04-27 e revisado em 2026-08-28 para registrar os
-pontos de medicao do rail do microcontrolador nas tres placas usadas pelo
-BALAS. O projeto completo do medidor autonomo, da carga de validacao e do
-procedimento de captura esta em
-[025_projeto-medidor-corrente-dc-instantanea.md](025_projeto-medidor-corrente-dc-instantanea.md).
-
-Restricao desta revisao: nenhuma placa BALAS pode ser soldada, dessoldada,
-cortada ou ter ponte de solda alterada. Somente jumpers removiveis, chaves e
-conectores ja existentes podem ser usados.
+Documento criado em 2026-04-27 para registrar se as placas avaliadas possuem ponto de medicao de corrente/energia diretamente na placa e onde consultar os esquematicos.
 
 ## Resumo
 
-| Placa | Ponto em serie | Rail observado | Preparacao |
+| Placa | Medicao direta na placa | Ponto de medicao | Observacao |
 | --- | --- | --- | --- |
-| NXP FRDM-MCXN947 | `J24 / IDD_MCU` | `P3V3_MCU` | Remover o shunt de `J24` e inserir o instrumento entre `IDD_IN` e `IDD_OUT`. |
-| ST NUCLEO-H723ZG | `JP4 / IDD` | `VDD_MCU` | Remover o jumper de `JP4` e inserir o instrumento entre `VDD` e `VDD_MCU`. |
-| Nordic nRF52840-DK | entrada de alimentacao externa `P21` | corrente entregue pela fonte externa ao dominio `VDD` | Alimentar `P21` atraves do medidor, com `SW9 = VDD`, `SW10 = ON` (`VEXT -> nRF`) e `SW6 = nRF ONLY`; nao abrir `SB40` nem `SB41`. |
+| NXP FRDM-MCXN947 | Sim | J24 / IDD_MCU | Mede a corrente que entra em `P3V3_MCU`, rail usado para alimentar os dominios do MCU na configuracao padrao. |
+| ST Nucleo-H723ZG | Sim | JP4 / IDD | Mede a corrente IDD do STM32H723 no VDD_MCU. |
+| Nordic nRF5340 DK | Sim | P22 / VDD e P23 / VDDH | Requer abrir SB40/SB41 ou inserir instrumento em serie conforme a configuracao. |
+| Nordic nRF52840 DK | Sim | P22 / VDD e P23 / VDDH | Requer abrir SB40/SB41 ou inserir instrumento em serie conforme a configuracao. |
+| Nordic nRF53840-DK | Nao identificada | - | Nao foi localizada uma placa oficial com esse nome. Provavel confusao com nRF5340 DK ou nRF52840 DK. |
 
-Esses pontos nao sao medidores completos. Em NXP e ST, eles interrompem o rail
-para que um shunt ou amperimetro seja colocado em serie. Na Nordic, o medidor
-fica em serie com a fonte externa ligada a `P21`. A partir das amostras de
-corrente:
+Essas placas normalmente fornecem um ponto de medicao de corrente, nao um medidor de energia completo. A potencia instantanea pode ser estimada por:
 
 ```text
-P(t) = Vrail(t) * I(t)
+P = V * I
+```
+
+Para energia em um intervalo:
+
+```text
 E = integral(P(t) dt)
 ```
 
-Para detectar aumentos curtos de consumo, um multimetro ou monitor I2C de baixa
-taxa nao e suficiente. O documento `025` define um front-end isolado ligado a
-uma placa de aquisicao dedicada, sem depender de osciloscopio.
+Na pratica, use um amperimetro de precisao, osciloscopio com shunt, Joulescope, Nordic Power Profiler Kit II, Otii Arc ou instrumento equivalente para registrar a corrente ao longo do tempo.
 
-## O que a medicao representa
+## Valores eletricos dos microcontroladores
 
-A medicao nos pontos selecionados e muito melhor que medir a corrente total no
-USB, mas ainda representa a corrente que atravessa o caminho de alimentacao
-escolhido. Ela nao e uma sonda interna do nucleo da CPU. Capacitores de
-desacoplamento, reguladores, dominios auxiliares e componentes que compartilham
-o rail podem alterar o formato observado.
+Valores de referencia extraidos dos datasheets/product specifications dos MCUs. Eles nao substituem a medicao real na placa: corrente depende de clock, codigo executado, memoria usada, perifericos, radio, temperatura e regulador ativo.
 
-Consequencias praticas:
-
-- pulsos internos muito rapidos podem ser fornecidos primeiro pelos capacitores
-  locais e aparecer no shunt como uma reposicao de carga mais lenta;
-- a corrente de interfaces e perifericos no mesmo rail deve ser mantida igual
-  ou documentada;
-- a comparacao deve usar o mesmo ponto logico da inferencia, a mesma janela e o
-  mesmo criterio de baseline;
-- corrente instantanea, potencia e energia sao metricas diferentes e devem ser
-  registradas separadamente.
-
-Para nao apresentar precisao falsa, os resultados devem identificar a classe
-da conexao:
-
-- `A - rail dedicado`: NXP em `J24` e ST em `JP4`; preparacao inteiramente
-  reversivel, removendo apenas um shunt/jumper;
-- `B - alimentacao externa do SoC`: Nordic em `P21`, usando somente as chaves
-  da placa. E a melhor rota sem adulteracao, mas pode incluir fuga residual ou
-  alguma carga que permaneca ligada ao dominio `VDD`;
-- a rota Nordic `P22/SB40`, mais direta para `VDD_nRF`, nao sera usada porque
-  exige cortar `SB40` na configuracao original e depois soldar para restaura-la.
-
-Comparacoes de aumento sobre o baseline continuam validas na classe `B`, desde
-que configuracao, tensao e perifericos sejam mantidos iguais. Valores absolutos
-Nordic devem ser publicados separadamente dos resultados de classe `A`.
-
-## Valores de referencia, nao resultados medidos
-
-Os numeros abaixo servem apenas para selecionar a faixa inicial do medidor.
-Eles nao substituem a medicao do firmware BALAS real.
-
-| Placa | MCU | Tensao do MCU | Referencia de consumo ativo | Baixo consumo de referencia |
+| Placa | Microcontrolador | Tensao de trabalho do MCU | Corrente de trabalho / referencia | Baixo consumo / referencia |
 | --- | --- | --- | --- | --- |
-| FRDM-MCXN947 | NXP MCXN947 | `1,71 V` a `3,6 V` | Ate `57 uA/MHz` na condicao de menor consumo ativo publicada. | `6 uA` em Power-down com RTC e `512 KB` de SRAM retida; `2 uA` em Deep Power-down com RTC e `32 KB` retidos. |
-| NUCLEO-H723ZG | ST STM32H723ZG | `1,62 V` a `3,6 V` em `VDD`/`VDDLDO`/`VDDA` | `145 mA` tipicos em Run a `550 MHz` na condicao especificada pelo datasheet. | Stop a partir de `0,52 mA`; Standby na ordem de poucos microamperes, conforme a configuracao de RTC e SRAM. |
-| nRF52840-DK | Nordic nRF52840 | `1,7 V` a `3,6 V` em `VDD`; `2,5 V` a `5,5 V` em `VDDH` | `52 uA/MHz` rodando CoreMark a partir da Flash, ou aproximadamente `3,3 mA` a `64 MHz` na condicao publicada. | `0,4 uA` em System OFF sem retencao de RAM e `1,5 uA` em System ON sem retencao com wake por RTC, a `3 V`. |
+| FRDM-MCXN947 | NXP MCXN947 | `1.71 V` a `3.6 V` | Ate `57 uA/MHz` em modo ativo, conforme condicao de menor consumo do datasheet. Em `150 MHz`, isso equivale a aproximadamente `8.55 mA` como ordem de grandeza minima do nucleo em ativo. | `6 uA` em Power-down com RTC e `512 KB` de SRAM retida; `2 uA` em Deep Power-down com RTC e `32 KB` de SRAM retida. |
+| Nucleo-H723ZG | ST STM32H723ZG | `1.62 V` a `3.6 V` em `VDD`/`VDDLDO`/`VDDA` | `145 mA` tipico em Run a `550 MHz`, codigo com processamento e perifericos desabilitados, conforme tabela de consumo em Run do datasheet. | Stop: `0.52 mA` tipico no melhor caso listado. Standby: `2.8 uA` tipico a `3.3 V` com backup SRAM/RTC desligados; `4.75 uA` tipico a `3.3 V` com backup SRAM e RTC/LSE ligados. |
+| nRF5340 DK | Nordic nRF5340 | Modo normal `VDD`: `1.7 V` a `3.6 V`; modo alta tensao `VDDH`: `2.5 V` a `5.5 V` | Application CPU rodando CoreMark: `8.0 mA` tipico a `128 MHz` com HFXO e execucao em flash; `3.6 mA` tipico a `64 MHz`. Radio BLE: TX `0 dBm` `4.1 mA` tipico; RX 1 Mbps `3.7 mA` tipico. | System OFF: `1.0 uA` tipico com `0 KB` de RAM de aplicacao retida e wake por reset; `0.9 uA` tipico com wake por LPCOMP/reset em algumas condicoes do datasheet. |
 
-## Esquematicos locais
+Nota sobre a Nordic: como `nRF53840-DK` nao foi identificada como placa oficial, a tabela acima assume `nRF5340 DK`. Se a placa em uso for `nRF52840 DK`, use os valores do SoC `nRF52840`, nao os do `nRF5340`.
 
-| Placa | Arquivo | Evidencia principal |
+## PDFs salvos localmente
+
+Os PDFs de esquematico/layout disponiveis foram salvos em:
+
+| Placa | Arquivo local | Fonte |
 | --- | --- | --- |
-| FRDM-MCXN947 | [nxp-frdm-mcxn947-90818-mcxn947sh-schematic.pdf](hardware-pdfs/nxp-frdm-mcxn947-90818-mcxn947sh-schematic.pdf) | Folha `USB & PWR`: `J24` entre `P3V3` e `P3V3_MCU`. |
-| NUCLEO-H723ZG | [st-nucleo-h723zg-mb1364-h723zg-e01-schematic.pdf](hardware-pdfs/st-nucleo-h723zg-mb1364-h723zg-e01-schematic.pdf) | Folha `MCU 144 POWER`: `JP4 / IDD Measurement` entre `VDD` e `VDD_MCU`. |
-| nRF52840-DK | [nordic-nrf52840-dk-pca10056-schematic-and-pcb.pdf](hardware-pdfs/nordic-nrf52840-dk-pca10056-schematic-and-pcb.pdf) | Folha `Power supply`: entrada externa `P21`, seletores `SW9`/`SW10` e chave `SW6`; `P22/SB40` permanece documentado apenas como rota excluida. |
+| NXP FRDM-MCXN947 | [nxp-frdm-mcxn947-90818-mcxn947sh-schematic.pdf](hardware-pdfs/nxp-frdm-mcxn947-90818-mcxn947sh-schematic.pdf) | NXP: `90818-MCXN947SH`, tambem disponivel como anexo em dominio `community.nxp.com`. |
+| ST Nucleo-H723ZG | [st-nucleo-h723zg-mb1364-h723zg-e01-schematic.pdf](hardware-pdfs/st-nucleo-h723zg-mb1364-h723zg-e01-schematic.pdf) | ST: `MB1364-H723ZG-E01 Schematics`. |
+| Nordic nRF5340 DK | [nordic-nrf5340-dk-pca10095-schematic-and-pcb.pdf](hardware-pdfs/nordic-nrf5340-dk-pca10095-schematic-and-pcb.pdf) | Pacote oficial Nordic `nRF5340 Development Kit - Hardware files 2_0_0`. |
+| Nordic nRF52840 DK | [nordic-nrf52840-dk-pca10056-schematic-and-pcb.pdf](hardware-pdfs/nordic-nrf52840-dk-pca10056-schematic-and-pcb.pdf) | Pacote oficial Nordic `nRF52840 Development Kit - Hardware files 3_0_3`. |
+
+Links de consulta:
+
+- NXP FRDM-MCXN947: https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-MCXN947
+- ST Nucleo-H723ZG: https://www.st.com/en/evaluation-tools/nucleo-h723zg.html
+- ST esquematico direto: https://www.st.com/resource/en/schematic_pack/mb1364-h723zg-e01_schematic.pdf
+- Nordic nRF5340 DK downloads: https://www.nordicsemi.com/Products/Development-hardware/nRF5340-DK/Download
+- Nordic nRF52840 DK downloads: https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK/Download
 
 ## NXP FRDM-MCXN947
 
-O ponto `J24 / IDD_MCU` fica entre a saida geral `P3V3` e o rail
-`P3V3_MCU`. A documentacao do exemplo `power_manager_test` da NXP confirma o
-seguinte mapeamento:
+A FRDM-MCXN947 possui medicao direta do consumo do MCU pelo ponto `J24 / IDD_MCU`, associado ao rail `P3V3_MCU`. Na documentacao do MCUXpresso SDK para o exemplo `power_manager_test`, a NXP indica duas formas de medir a potencia/corrente do MCU: conectar um amperimetro ao conector `J24` ou conectar o `J24` ao MCU-Link Debug Probe e usar a funcao de medicao de energia do MCUXpresso IDE.
 
-| Sinal | Ponto | Funcao |
+Mapeamento do ponto de medicao:
+
+| Sinal | Ponto na FRDM-MCXN947 | Observacao |
 | --- | --- | --- |
-| `IDD_IN` | `J24-1` | Lado da fonte, vindo de `P3V3`. |
-| `IDD_OUT` | `J24-2` | Lado da carga, seguindo para `P3V3_MCU`. |
-| `VSS` | `J10-4` | Referencia usada pelo MCU-Link Debug Probe. |
+| `IDD_IN` | `J24-1` | Entrada da corrente para o rail do MCU. |
+| `IDD_OUT` | `J24-2` | Saida da corrente apos o instrumento de medicao. |
+| `VSS` | `J10-4` | Referencia de terra usada pelo MCU-Link Debug Probe. |
 
-Procedimento resumido:
+Procedimento tipico:
 
-1. Desligar e desconectar todas as fontes da placa.
-2. Remover o shunt de `J24`.
-3. Ligar `IN` do medidor a `J24-1` e `OUT` a `J24-2`.
-4. Confirmar continuidade e polaridade antes de energizar.
-5. Medir tambem a tensao no lado `P3V3_MCU` para calcular potencia.
+1. Remover o jumper/short de `J24`.
+2. Inserir o amperimetro em serie entre `J24-1` (`IDD_IN`) e `J24-2` (`IDD_OUT`).
+3. Medir a corrente do rail do MCU.
+4. Calcular potencia usando a tensao do rail, tipicamente `3.3 V` para `P3V3_MCU`.
 
-Nao medir em `P5V0`, no USB ou no `P3V3` geral se o objetivo for isolar o rail
-do MCU. Se a placa tiver sido modificada para separar `VDD_ANA`, `VDD_BAT`,
-`VDD_USB` ou `VDD_CORE_SYS`, reconfirmar no esquematico quais dominios ainda
-atravessam `J24`.
+Essa medicao nao deve ser feita no USB, em `P5V0` ou em `P3V3` geral se o objetivo for isolar apenas o consumo do microcontrolador, pois esses pontos tambem incluem outros circuitos da placa, como reguladores, LEDs, interfaces, sensores e o MCU-Link. Se a placa tiver sido modificada para alimentar separadamente `VDD_ANA`, `VDD_BAT`, `VDD_USB` ou `VDD_CORE_SYS`, confirme no esquematico se todos os dominios relevantes ainda passam por `J24`; caso contrario, a corrente total do MCU precisa ser reconstruida pela soma das medicoes dos ramos separados.
 
-## ST NUCLEO-H723ZG
+Observacao: o site da NXP lista o arquivo `FRDM-MCXN947 Schematics`, codigo `90818-MCXN947SH`, como "Account Required". O PDF local foi baixado de um anexo publico no dominio da NXP Community.
 
-O esquematico da variante `MB1364-H723ZG-E01` identifica `JP4` como
-`IDD Measurement`. O lado de entrada e `VDD`; o lado de saida e `VDD_MCU`.
+## ST Nucleo-H723ZG
 
-Procedimento resumido:
+A Nucleo-H723ZG possui medicao direta de corrente do MCU pelo jumper `JP4 / IDD`.
 
-1. Desligar e desconectar todas as fontes da placa.
-2. Remover o jumper de `JP4`.
-3. Ligar `IN` do medidor ao pino `VDD` e `OUT` ao pino `VDD_MCU`.
-4. Confirmar continuidade e polaridade antes de energizar.
-5. Medir a tensao em `VDD_MCU` durante a captura.
+Procedimento tipico:
 
-Na revisao `E01`, o manual `UM2407` informa que a medicao de `IDD` pode ser
-realizada em Standby; o Ethernet PHY foi separado de `VDD_MCU`. Essa conclusao
-nao deve ser transferida para revisoes antigas sem verificar a identificacao da
-placa.
+1. Remover o jumper `JP4`.
+2. Conectar o amperimetro em serie nos pinos de `JP4`.
+3. Medir a corrente `IDD` do MCU.
+4. Calcular potencia com a tensao do rail medido.
 
-## Nordic nRF52840-DK
+O esquematico identifica `JP4` como `IDD Measurement` no rail `VDD_MCU`.
 
-O guia da Nordic oferece alimentacao direta e reversivel pelo conector `P21`.
-Essa sera a unica rota permitida neste projeto. Nao usar `P22`, `P23`, `SB40`
-ou `SB41`.
+Nota de revisao: para a variante `MB1364-H723ZG-E01`, o manual da ST indica que a medicao IDD em Standby pode ser realizada. Em revisoes antigas de placas STM32H7 Nucleo-144, alguns circuitos externos ligados ao `VDD_MCU` podiam afetar a medicao em Standby.
 
-Procedimento sem solda e sem corte:
+## Nordic nRF5340 DK
 
-1. Programar o firmware autonomo antes da medicao.
-2. Desligar e desconectar todas as fontes.
-3. Colocar `SW9` na posicao `VDD`.
-4. Colocar `SW6` em `nRF ONLY`, isolando o interface MCU, LEDs e sinais da
-   aplicacao conforme o guia da placa.
-5. Colocar `SW10` em `ON`, habilitando `VEXT -> nRF`.
-6. Ajustar uma fonte regulada entre `1,7 V` e `3,6 V`; usar inicialmente
-   `3,0 V` e limite de corrente baixo.
-7. Com tudo desligado, ligar o positivo da fonte a `RAIL_IN` do medidor,
-   `RAIL_OUT` ao positivo de `P21` e o retorno ao `GND` de `P21`. Usar a
-   polaridade impressa na placa e confirma-la com o esquematico e o multimetro;
-   nao confiar apenas na orientacao fisica do conector.
-8. Alimentar separadamente o restante do DK em `5 V` para o seguidor de tensao,
-   como exige o guia da Nordic. Essa fonte tambem deve flutuar em relacao ao
-   computador e nao deve abrir terminal na VCOM. Sua corrente de `5 V` nao
-   atravessa o shunt de `P21`, mas a condicao deve ser registrada.
-9. Executar `ZERO`, energizar a fonte de `P21` e confirmar a tensao antes de
-   iniciar a captura.
+A nRF5340 DK possui pontos dedicados para medicao de corrente:
 
-O resultado e a corrente entregue pelo caminho externo `P21` ao dominio `VDD`,
-nao uma garantia de corrente matematicamente exclusiva do nucleo. O modo
-`nRF ONLY` reduz a interferencia, mas a configuracao da memoria externa e fugas
-residuais ainda podem contribuir. Para detectar o aumento provocado por
-processamento, medir um baseline imediatamente anterior e usar `delta_I` e
-energia incremental.
+- `P22` para o dominio `VDD`.
+- `P23` para o dominio `VDDH`.
+- `SB40` e `SB41` aparecem no esquematico como as pontes de solda associadas a esses caminhos de alimentacao.
 
-Como o protocolo BALAS atual usa a VCOM para enviar o tensor, a medicao de menor
-interferencia requer um firmware de ensaio autonomo: tensor pregravado, disparo
-local e marcador GPIO de inicio/fim da inferencia. A serial pode continuar sendo
-usada em ensaios exploratorios, mas essa condicao deve ser registrada e nao deve
-ser misturada com a captura autonoma.
+Procedimento tipico:
 
-## Criterio comum para as tres placas
+1. Verificar se o objetivo e medir o dominio `VDD` ou `VDDH`.
+2. Abrir a ponte correspondente, quando necessario.
+3. Inserir o instrumento de corrente em serie em `P22` ou `P23`.
+4. Registrar corrente ao longo do tempo para obter energia.
 
-- mesmo modelo e mesma entrada;
-- mesma definicao de inicio e fim de inferencia;
-- mesma faixa do medidor quando ela nao comprometer resolucao;
-- mesma taxa de amostragem e largura de banda;
-- mesma politica para clocks, caches, LEDs, debug e perifericos;
-- nenhuma conexao de dados com o computador durante a captura e fontes do DUT
-  flutuantes em relacao ao terra do computador;
-- baseline imediatamente antes de cada inferencia;
-- tensao real do rail, nao apenas `3,3 V` presumidos;
-- pelo menos corrente media, pico, aumento sobre o baseline, duracao e energia.
+## Nordic nRF52840 DK
 
-## Fontes oficiais
+A nRF52840 DK tambem possui pontos dedicados para medicao:
 
-- NXP, `power_manager_test` para FRDM-MCXN947:
-  https://mcuxpresso.nxp.com/mcuxsdk/latest/html/examples/_boards/frdmmcxn947/demo_apps/power_manager_test/bm/example_board_readme.html
-- ST, manual `UM2407` das Nucleo-144 `MB1364`:
-  https://www.st.com/resource/en/user_manual/um2407-stm32h7-nucleo144-board-stmicroelectronics.pdf
-- Nordic, medicao de corrente na nRF52840-DK:
-  https://docs.nordicsemi.com/r/bundle/ug_nrf52840_dk/page/ug/dk/hw_measure_current.html
-- Nordic, alimentacao direta pelo conector `P21`:
-  https://docs.nordicsemi.com/r/bundle/ug_nrf52840_dk/page/ug/dk/direct_supply.html
-- Nordic, modo `nRF ONLY`:
-  https://docs.nordicsemi.com/r/bundle/ug_nrf52840_dk/page/ug/dk/nrf_only_mode.html
-- Nordic, selecao da fonte de alimentacao:
-  https://docs.nordicsemi.com/r/bundle/ug_nrf52840_dk/page/ug/dk/power_source.html
-- Nordic, preparo de `P22/SB40` (rota consultada e deliberadamente excluida):
-  https://docs.nordicsemi.com/r/bundle/ug_nrf52840_dk/page/ug/dk/prepare_board.html
-- Nordic, Product Specification do nRF52840:
-  https://docs.nordicsemi.com/r/bundle/ps_nrf52840/
+- `P22` para o dominio `VDD`.
+- `P23` para o dominio `VDDH`.
+- `SB40` e `SB41` aparecem no esquematico como as pontes de solda associadas a esses caminhos de alimentacao.
+
+O fluxo de medicao e equivalente ao da nRF5340 DK.
+
+## Comparacao pratica
+
+| Placa | Facilidade de medicao | Melhor uso |
+| --- | --- | --- |
+| FRDM-MCXN947 | Alta | Medir consumo do MCU/NPU no rail do MCU. |
+| Nucleo-H723ZG | Alta | Medir IDD do STM32H723 com amperimetro em `JP4`. |
+| nRF5340 DK | Alta | Medir dominios `VDD` e `VDDH`, inclusive com PPK2. |
+| nRF52840 DK | Alta | Medir dominios `VDD` e `VDDH`, inclusive com PPK2. |
+
+Para comparacoes justas entre placas, manter o mesmo criterio:
+
+- mesma tensao considerada no calculo de potencia;
+- mesmo firmware ou carga computacional equivalente;
+- perifericos externos desligados ou documentados;
+- mesma janela temporal de medicao;
+- mesmo instrumento e taxa de amostragem, quando possivel.

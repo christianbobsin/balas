@@ -4,11 +4,12 @@
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/schema/schema_generated.h"
+#include "neutron.h"
 #include "input.h"
 #include "output.h"
 
-#define TENSOR_ARENA_SIZE 57344
-#define N_OPS 9
+#define TENSOR_ARENA_SIZE 65536
+#define N_OPS 7
 
 class MyModel {
     private:

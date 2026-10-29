@@ -74,6 +74,7 @@ AXF_FILE="${AXF_FILE:-$BUILD_DIR/$PROJECT_NAME.axf}"
 TARGET_DEVICE="${TARGET_DEVICE:-MCXN947}"
 CORE_INDEX="${CORE_INDEX:-0}"
 BOOTROM_STALL="${BOOTROM_STALL:-0x50000040}"
+#BOOTROM_STALL="${BOOTROM_STALL:-none}"
 
 LINKSERVER_ROOT="${LINKSERVER_ROOT:-/usr/local/LinkServer}"
 REDLINK_BIN="${REDLINK_BIN:-$LINKSERVER_ROOT/binaries/crt_emu_cm_redlink}"
@@ -105,8 +106,13 @@ cmd=(
     -CoreIndex="$CORE_INDEX"
     --flash-driver=
     -x "$BUILD_DIR"
+    -x "$PACKAGE_SUPPORT_DIR" # ??
     --flash-hashing
 )
+
+#if [[ -n "${BOOTROM_STALL}" && "${BOOTROM_STALL}" != "none" ]]; then
+#    cmd+=(--bootromstall "$BOOTROM_STALL")
+#fi
 
 if [[ -n "$PROBE_SERIAL" ]]; then
     cmd+=(--probeserial "$PROBE_SERIAL")
@@ -125,3 +131,6 @@ if [[ -f "$PRECONNECT_SCRIPT" ]]; then
 fi
 
 "${cmd[@]}"
+
+# Ensure any debug halts are cleared and the target runs cleanly from flash
+#/usr/local/LinkServer/LinkServer reset auto >/dev/null 2>&1 || true

@@ -8,6 +8,16 @@
 #include "serial_io.h"
 #include "timer.h"
 #include <exception>
+#include <cstring>
+
+// Reply frame: 0xA5 0x5A | int32 (little-endian) | XOR of the 4 value bytes.
+// The sync header lets the host skip stray bytes and detect misaligned reads.
+static void send_framed_int(int value) {
+	uint8_t frame[7] = {0xA5, 0x5A};
+	std::memcpy(&frame[2], &value, sizeof(value));
+	frame[6] = frame[2] ^ frame[3] ^ frame[4] ^ frame[5];
+	serial_write(frame, sizeof(frame));
+}
 
 
 int main(void) {
@@ -25,7 +35,7 @@ int main(void) {
 	   start_timing();
 	   model.run_inference(input, output);
 	   int inference_time_us = stop_timing();
-	   serial_write((uint8_t*)&inference_time_us, sizeof(int));
+	   send_framed_int(inference_time_us);
 //	   serial_write((uint8_t*)&arena_size, sizeof(int));
 	}
 
