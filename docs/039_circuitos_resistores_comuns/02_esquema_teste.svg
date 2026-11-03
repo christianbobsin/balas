@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="1080" viewBox="0 0 1450 1080"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="45" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#1a2a3d">2. Teste inicial — fonte de 3,3 V e carga de 220 Ω</text>
+<text x="35" y="83" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">Sem Fluke e sem placa medida. Use um único módulo de shunt por vez. Multímetro em tensão DC.</text>
+<rect x="400" y="145" width="460" height="240" rx="3" fill="#fffaf0" stroke="#748291" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="440" y="179" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">MÓDULO DE SHUNT</text>
+<polyline points="110,240 570,240" fill="none" stroke="#ba481d" stroke-width="4" stroke-linejoin="round"/>
+<rect x="590" y="222" width="110" height="36" rx="3" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<polyline points="570,240 590,240" fill="none" stroke="#1a2a3d" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="700,240 730,240" fill="none" stroke="#1a2a3d" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="730,240 1100,240 1100,340" fill="none" stroke="#ba481d" stroke-width="4" stroke-linejoin="round"/>
+<text x="438" y="225" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#1a2a3d">J1.1 / I+</text>
+<text x="760" y="225" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#1a2a3d">J1.2 / I−</text>
+<text x="604" y="213" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">RSH</text>
+<circle cx="570" cy="240" r="5" fill="#1a2a3d"/>
+<circle cx="730" cy="240" r="5" fill="#1a2a3d"/>
+<polyline points="570,240 570,525" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="730,240 730,525" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<text x="435" y="360" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16844e">J2.1 / S+</text>
+<text x="745" y="360" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16844e">J2.2 / S−</text>
+<rect x="1080" y="340" width="40" height="100" rx="3" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<polyline points="1100,440 1100,850 110,850" fill="none" stroke="#ba481d" stroke-width="4" stroke-linejoin="round"/>
+<text x="1150" y="370" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">RT = 220 Ω</text>
+<text x="1150" y="404" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">¼ W / 1%</text>
+<rect x="450" y="525" width="400" height="220" rx="3" fill="#eef5fc" stroke="#1a2a3d" stroke-width="2"/>
+<text x="545" y="560" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN+</text>
+<text x="710" y="560" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN−</text>
+<text x="475" y="611" font-family="DejaVu Sans, sans-serif" font-size="26" fill="#1a2a3d">Sua placa TI</text>
+<text x="475" y="645" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">INA180A2 • ganho 50</text>
+<text x="465" y="716" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">VS</text>
+<text x="670" y="724" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">GND</text>
+<text x="785" y="700" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">OUT</text>
+<polyline points="110,240 110,705 450,705" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="110" cy="240" r="5" fill="#1a2a3d"/>
+<polyline points="700,745 700,850" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="700" cy="850" r="5" fill="#1a2a3d"/>
+<polyline points="850,690 950,690" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="985" cy="690" r="35" fill="white" stroke="#285fb0" stroke-width="2"/>
+<text x="972" y="699" font-family="DejaVu Sans, sans-serif" font-size="27" fill="#1a2a3d">V</text>
+<polyline points="985,725 985,850" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="985" cy="850" r="5" fill="#1a2a3d"/>
+<text x="910" y="655" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">Multímetro</text>
+<text x="910" y="681" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">+</text>
+<text x="995" y="790" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">COM</text>
+<text x="120" y="219" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#ba481d">+3,3 V</text>
+<text x="120" y="887" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">− da fonte / GND</text>
+<text x="35" y="940" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">RSH-L de 1 Ω: I ≈ 14,93 mA; OUT ≈ 0,747 V.</text>
+<text x="35" y="980" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">RSH-H de 0,1 Ω: I ≈ 14,99 mA; OUT ≈ 0,075 V.</text>
+<text x="35" y="1020" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">Fonte regulada; limite de 30 mA se disponível. Os dois pontos no módulo são as soldas nas pernas.</text>
+</svg>

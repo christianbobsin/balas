@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1070" viewBox="0 0 1560 1070"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="44" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#182b40">Teste do shunt de 0,1 Ω — Due apenas como fonte de 3,3 V</text>
+<text x="35" y="83" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">Primeiro ensaio: só R1. Segundo ensaio: acrescente R2 em paralelo com R1, com o USB desconectado.</text>
+<rect x="45" y="250" width="285" height="425" rx="3" fill="#eef5fc" stroke="#182b40" stroke-width="2"/>
+<text x="70" y="291" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#182b40">ARDUINO DUE</text>
+<text x="70" y="329" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">Alimentado por USB</text>
+<text x="70" y="373" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">Neste teste, fornece</text>
+<text x="70" y="403" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">somente 3,3 V e GND.</text>
+<text x="225" y="466" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#bd4823">3,3 V</text>
+<text x="225" y="607" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#285fb0">GND</text>
+<text x="70" y="653" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">A0 desconectado</text>
+<polyline points="330,460 400,460 400,240 590,240" fill="none" stroke="#bd4823" stroke-width="4" stroke-linejoin="round"/>
+<rect x="590" y="222" width="130" height="36" rx="3" fill="white" stroke="#182b40" stroke-width="2"/>
+<polyline points="720,240 1350,240" fill="none" stroke="#bd4823" stroke-width="4" stroke-linejoin="round"/>
+<text x="594" y="206" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">R1 = 470 Ω</text>
+<text x="597" y="284" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">¼ W</text>
+<circle cx="450" cy="240" r="5" fill="#182b40"/>
+<circle cx="850" cy="240" r="5" fill="#182b40"/>
+<circle cx="1100" cy="240" r="5" fill="#182b40"/>
+<polyline points="450,240 450,150 590,150" fill="none" stroke="#bd4823" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 7"/>
+<rect x="590" y="132" width="130" height="36" rx="3" fill="#fff7e9" stroke="#bd4823" stroke-width="2"/>
+<polyline points="720,150 850,150 850,240" fill="none" stroke="#bd4823" stroke-width="3" stroke-linejoin="round" stroke-dasharray="10 7"/>
+<text x="890" y="153" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#bd4823">R2 = 470 Ω / ¼ W</text>
+<text x="890" y="185" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#bd4823">Somente no segundo ensaio</text>
+<text x="1090" y="223" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#16824c">M</text>
+<polyline points="1350,240 1350,350" fill="none" stroke="#bd8b00" stroke-width="6" stroke-linejoin="round"/>
+<rect x="1326" y="350" width="48" height="110" rx="3" fill="#fff8dc" stroke="#182b40" stroke-width="2"/>
+<polyline points="1350,460 1350,550" fill="none" stroke="#bd8b00" stroke-width="6" stroke-linejoin="round"/>
+<polyline points="1350,550 1350,820" fill="none" stroke="#285fb0" stroke-width="4" stroke-linejoin="round"/>
+<text x="1100" y="399" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#182b40">SHUNT</text>
+<text x="1100" y="431" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#182b40">SR10 0,1 Ω</text>
+<text x="1100" y="463" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">como está montado</text>
+<text x="1370" y="303" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#bd8b00">fio amarelo</text>
+<text x="1370" y="510" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#bd8b00">fio amarelo</text>
+<rect x="650" y="520" width="400" height="230" rx="3" fill="#eef5fc" stroke="#182b40" stroke-width="2"/>
+<text x="675" y="562" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#182b40">SUA PLACA TI</text>
+<text x="675" y="598" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#182b40">INA180A2</text>
+<polyline points="1100,240 1100,365 950,365 950,520" fill="none" stroke="#16824c" stroke-width="3" stroke-linejoin="round"/>
+<text x="970" y="390" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#16824c">IN+</text>
+<text x="675" y="653" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#182b40">VS</text>
+<text x="780" y="723" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#182b40">GND</text>
+<text x="960" y="723" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#182b40">IN−</text>
+<text x="982" y="650" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">OUT</text>
+<circle cx="400" cy="460" r="5" fill="#bd4823"/>
+<polyline points="400,460 400,640 650,640" fill="none" stroke="#bd4823" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="330,600 360,600 360,820 1350,820" fill="none" stroke="#285fb0" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="805,750 805,820" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="805" cy="820" r="5" fill="#285fb0"/>
+<polyline points="990,750 990,820" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="990" cy="820" r="5" fill="#285fb0"/>
+<polyline points="1050,640 1150,640" fill="none" stroke="#bd4823" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1185" cy="640" r="35" fill="white" stroke="#285fb0" stroke-width="3"/>
+<text x="1173" y="650" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#182b40">V</text>
+<polyline points="1185,675 1185,820" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1185" cy="820" r="5" fill="#285fb0"/>
+<text x="1110" y="563" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">MULTÍMETRO</text>
+<text x="1110" y="590" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">Tensão DC</text>
+<text x="1070" y="705" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#bd4823">vermelha / V</text>
+<text x="1198" y="772" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#285fb0">preta / COM</text>
+<text x="385" y="864" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">GND comum: Due GND + fio amarelo inferior + INA GND + INA IN− + COM do multímetro</text>
+<text x="40" y="925" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#182b40">1º ensaio — só R1 de 470 Ω: OUT esperado ≈ 0,035 V (35 mV).</text>
+<text x="40" y="967" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#182b40">2º ensaio — R1 e R2 em paralelo: OUT esperado ≈ 0,070 V (70 mV).</text>
+<text x="40" y="1010" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">Valores nominais. Offset do INA e tolerâncias alteram as leituras. Meça OUT sempre contra GND.</text>
+<text x="40" y="1048" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">Use 3,3 V, não 5 V. Monte e altere as conexões com o USB desconectado. Não ligue o shunt sozinho à fonte.</text>
+</svg>

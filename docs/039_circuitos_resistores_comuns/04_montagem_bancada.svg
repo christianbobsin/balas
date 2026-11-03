@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1100" viewBox="0 0 1520 1100"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="45" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#1a2a3d">4. Montagem de bancada — posição dos módulos e cabos</text>
+<text x="35" y="83" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">Vista de montagem sugerida. Posição dos bornes da placa TI é ilustrativa: siga os nomes impressos na sua placa.</text>
+<rect x="40" y="150" width="360" height="265" rx="3" fill="#f2f2f2" stroke="#1a2a3d" stroke-width="2"/>
+<text x="65" y="192" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">CONEXÃO DE CORRENTE</text>
+<text x="65" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">Escolha UM modo:</text>
+<text x="65" y="275" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">TESTE: fonte +3,3 V</text>
+<text x="65" y="315" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">CAL: Fluke AUX HI</text>
+<text x="65" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ba481d">cabo I+</text>
+<rect x="530" y="150" width="500" height="330" rx="3" fill="#fff7e7" stroke="#1a2a3d" stroke-width="2"/>
+<text x="555" y="190" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1a2a3d">MÓDULO SOLDADO</text>
+<text x="555" y="226" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">1 Ω OU 0,1 Ω</text>
+<rect x="550" y="260" width="140" height="140" rx="3" fill="#d9e5da" stroke="#1a2a3d" stroke-width="2"/>
+<text x="570" y="289" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">J1</text>
+<circle cx="575" cy="325" r="8" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<text x="596" y="331" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">1 I+</text>
+<circle cx="575" cy="375" r="8" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<text x="596" y="381" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">2 I−</text>
+<rect x="870" y="260" width="140" height="140" rx="3" fill="#e5edf9" stroke="#1a2a3d" stroke-width="2"/>
+<text x="890" y="289" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">J2</text>
+<circle cx="895" cy="325" r="8" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<text x="915" y="331" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">1 S+</text>
+<circle cx="895" cy="375" r="8" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<text x="915" y="381" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">2 S−</text>
+<polyline points="400,365 460,365 460,325 567,325" fill="none" stroke="#ba481d" stroke-width="6" stroke-linejoin="round"/>
+<polyline points="575,383 575,455 1100,455 1100,375" fill="none" stroke="#ba481d" stroke-width="6" stroke-linejoin="round"/>
+<rect x="1100" y="150" width="380" height="270" rx="3" fill="#f2f2f2" stroke="#1a2a3d" stroke-width="2"/>
+<text x="1120" y="191" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">RETORNO DE CORRENTE</text>
+<text x="1120" y="245" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">TESTE: RT 220 Ω → fonte −</text>
+<text x="1120" y="290" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">CAL: direto ao Fluke AUX LO</text>
+<text x="1120" y="374" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#ba481d">cabo I−</text>
+<polyline points="895,333 855,333 855,555 610,555 610,640" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="895,383 935,383 935,590 750,590 750,640" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<text x="945" y="550" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#16844e">Par de fios S+/S−</text>
+<text x="945" y="580" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#16844e">curto e trançado</text>
+<rect x="500" y="640" width="530" height="250" rx="3" fill="#eef5fc" stroke="#1a2a3d" stroke-width="2"/>
+<text x="525" y="680" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">SUA PLACA TI JÁ MONTADA</text>
+<text x="575" y="725" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN+</text>
+<text x="725" y="725" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN−</text>
+<text x="520" y="795" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">VS</text>
+<text x="780" y="860" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">GND</text>
+<text x="950" y="795" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">OUT</text>
+<rect x="40" y="650" width="340" height="240" rx="3" fill="#f2f2f2" stroke="#1a2a3d" stroke-width="2"/>
+<text x="60" y="693" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">ALIMENTAÇÃO DO INA</text>
+<text x="60" y="735" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">Fonte regulada de 3,3 V</text>
+<text x="285" y="795" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1a2a3d">+</text>
+<text x="285" y="855" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1a2a3d">−</text>
+<polyline points="380,790 500,790" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="380,850 420,850 420,960 820,960 820,890" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="820,960 1150,960 1150,890" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="820" cy="960" r="5" fill="#1a2a3d"/>
+<rect x="1150" y="650" width="330" height="240" rx="3" fill="#f2f2f2" stroke="#1a2a3d" stroke-width="2"/>
+<text x="1175" y="695" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1a2a3d">LEITURA</text>
+<text x="1175" y="736" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">Multímetro: OUT / GND</text>
+<text x="1175" y="775" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">OU</text>
+<text x="1175" y="815" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">RF + CF + A0/GND do Due</text>
+<polyline points="1030,790 1150,790" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<text x="45" y="1020" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">Una também o retorno da corrente ao GND comum: fonte − no teste; AUX LO na calibração.</text>
+<text x="45" y="1060" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">Os bornes IN+ e IN− recebem só os fios verdes. Mantenha a mesma montagem durante a calibração.</text>
+</svg>

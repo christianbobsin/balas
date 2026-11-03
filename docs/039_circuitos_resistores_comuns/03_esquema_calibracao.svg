@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1120" viewBox="0 0 1560 1120"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="45" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#1a2a3d">3. Calibração DC com o Fluke 5500A</text>
+<text x="35" y="83" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">O Fluke injeta corrente somente no shunt. RT de 220 Ω é retirado. Fonte separada de 3,3 V alimenta o INA.</text>
+<rect x="40" y="160" width="300" height="270" rx="3" fill="#f6f6f6" stroke="#1a2a3d" stroke-width="2"/>
+<text x="65" y="197" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#1a2a3d">FLUKE 5500A</text>
+<text x="65" y="229" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">Saída de corrente DC</text>
+<text x="165" y="285" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">AUX HI</text>
+<text x="165" y="385" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">AUX LO</text>
+<polyline points="340,280 580,280" fill="none" stroke="#ba481d" stroke-width="4" stroke-linejoin="round"/>
+<rect x="620" y="262" width="110" height="36" rx="3" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<polyline points="580,280 620,280" fill="none" stroke="#1a2a3d" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="730,280 820,280" fill="none" stroke="#1a2a3d" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="820,280 1460,280 1460,920 390,920 390,380 340,380" fill="none" stroke="#ba481d" stroke-width="4" stroke-linejoin="round"/>
+<rect x="465" y="150" width="470" height="270" rx="3" fill="none" stroke="#748291" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="495" y="187" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">MÓDULO RSH-L OU RSH-H</text>
+<text x="482" y="253" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#1a2a3d">J1.1 / I+</text>
+<text x="825" y="253" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#1a2a3d">J1.2 / I−</text>
+<text x="642" y="250" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">RSH</text>
+<circle cx="580" cy="280" r="5" fill="#1a2a3d"/>
+<circle cx="820" cy="280" r="5" fill="#1a2a3d"/>
+<polyline points="580,280 580,540" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="820,280 820,540" fill="none" stroke="#16844e" stroke-width="3" stroke-linejoin="round"/>
+<text x="470" y="400" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16844e">J2.1 / S+</text>
+<text x="830" y="400" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16844e">J2.2 / S−</text>
+<rect x="490" y="540" width="440" height="230" rx="3" fill="#eef5fc" stroke="#1a2a3d" stroke-width="2"/>
+<text x="555" y="575" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN+</text>
+<text x="795" y="575" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">IN−</text>
+<text x="515" y="627" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#1a2a3d">Placa TI • INA180A2</text>
+<text x="515" y="665" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">ganho 50</text>
+<text x="505" y="726" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">VS</text>
+<text x="690" y="747" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">GND</text>
+<text x="865" y="706" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">OUT</text>
+<rect x="40" y="580" width="275" height="180" rx="3" fill="#f6f6f6" stroke="#1a2a3d" stroke-width="2"/>
+<text x="60" y="617" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">FONTE DC 3,3 V</text>
+<text x="180" y="667" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">+</text>
+<text x="180" y="737" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">−</text>
+<polyline points="315,660 355,660 355,715 490,715" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="315,730 330,730 330,920 390,920" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="720,770 720,920" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="720" cy="920" r="5" fill="#1a2a3d"/>
+<polyline points="930,700 980,700" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<rect x="980" y="684" width="95" height="32" rx="3" fill="white" stroke="#1a2a3d" stroke-width="2"/>
+<text x="970" y="662" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">RF = 100 Ω</text>
+<polyline points="1075,700 1190,700" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1120" cy="700" r="5" fill="#285fb0"/>
+<rect x="1190" y="560" width="225" height="240" rx="3" fill="#eef5fc" stroke="#285fb0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1210" y="597" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#1a2a3d">Arduino Due</text>
+<text x="1210" y="628" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">OPCIONAL</text>
+<text x="1203" y="708" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#1a2a3d">A0</text>
+<text x="1295" y="780" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">GND</text>
+<polyline points="1120,700 1120,776" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1095,776 1145,776" fill="none" stroke="#1a2a3d" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1095,790 1145,790" fill="none" stroke="#1a2a3d" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1120,790 1120,920" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1120" cy="920" r="5" fill="#1a2a3d"/>
+<text x="950" y="815" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">CF = 10 nF</text>
+<text x="950" y="841" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#1a2a3d">cerâmico</text>
+<polyline points="1320,800 1320,920" fill="none" stroke="#285fb0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1320" cy="920" r="5" fill="#1a2a3d"/>
+<text x="500" y="960" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#1a2a3d">GND comum: AUX LO + negativo da fonte + GND do INA + GND do Due</text>
+<text x="35" y="1000" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#1a2a3d">Sem Due: retire RF/CF e meça OUT contra GND com o multímetro em tensão DC.</text>
+<text x="35" y="1040" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#1a2a3d">RSH-L: até 50 mA neste roteiro. RSH-H: até 500 mA. OUT nominal máximo = 2,5 V.</text>
+<text x="35" y="1080" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#1a2a3d">Comece em STBY, com o circuito fechado. Não conecte a fonte de 3,3 V ao caminho AUX HI → shunt → AUX LO.</text>
+</svg>

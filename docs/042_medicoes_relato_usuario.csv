@@ -1,0 +1,9 @@
+ordem,condicao,ponto,valor,unidade,escala_multimetro,origem,observacao
+1,um_resistor_470,INA_VS_GND,3.3,V,nao_informada,relato_usuario,valor_arredondado
+2,um_resistor_470,resistor_470,3.3,V,nao_informada,relato_usuario,valor_arredondado
+3,um_resistor_470,INA_INmais_INmenos,2.5,mV,nao_informada,relato_usuario,pontos_da_montagem
+4,um_resistor_470,INA_OUT_GND,110,mV,nao_informada,relato_usuario,relato_preliminar_aproximado
+5,um_resistor_470,metais_do_shunt,0.6,mV,nao_informada,relato_usuario,resolucao_exatidao_nao_documentadas
+6,um_resistor_470,INA_OUT_GND,112.7,mV,200_mV,relato_usuario,primeira_leitura_da_sequencia
+7,dois_470_em_paralelo,INA_OUT_GND,227.0,mV,2_V,relato_usuario,resolucao_real_da_escala_nao_informada
+8,retorno_um_resistor_470,INA_OUT_GND,114.4,mV,200_mV,relato_usuario,terceira_leitura_da_sequencia
