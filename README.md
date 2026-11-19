@@ -47,7 +47,7 @@ mv /tmp/stm-extract-dois/Utilities/linux/stm32tflm external/tflm-stm32/stm32tflm
 - Ajusta a variável de ambiente BALAS_STM32TFLM_BIN para apontar para o binário recém movido
 
 
-### IDE da NXP (a da nordic será adicionada posteriormente)
+### IDE da NXP
 
 #### Baixando o instalador da ferramenta
 - Entra [nesse link](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE) e clica em ```DOWNLOADS```
@@ -85,9 +85,41 @@ sudo ~/Downloads/mcuxpressoide-25.6.136.x86_64.deb.bin
 - Filtra por frdmmcxn947, clica na placa (vai ficar azul e clica em install)
 - Espera terminar
 
+### "IDE" da Nordic
+
+Entre aspas porque se trata de um conjunto de utilitarios, em vez de um ambiente de desenvolvimento completo integrado.
+#### Baixando e instalando
+- Certifica-te de estar no terminal, no distrobox e na raiz do projeto.
+- Executa:
+
+```bash
+mkdir -p external/nordic
+curl -fL https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil -o external/nordic/nrfutil
+chmod +x external/nordic/nrfutil
+external/nordic/nrfutil self-upgrade --to-version 8.2.1
+external/nordic/nrfutil install device=2.20.0 sdk-manager=1.16.1
+```
+
+- Entra [nesse link](https://www.segger.com/downloads/jlink/JLink_Linux_V924a_x86_64.deb), aceita a licença e clica em Download
+```bash
+```
+sudo apt install -y ~/Downloads/JLink_Linux_V924a_x86_64.deb
+external/nordic/nrfutil sdk-manager install v3.4.0
+git clone https://github.com/zephyrproject-rtos/tflite-micro.git ~/ncs/v3.4.0/optional/modules/lib/tflite-micro
+git -C ~/ncs/v3.4.0/optional/modules/lib/tflite-micro checkout --detach fcc760af130f3a595b5802cdebcc77461e54f382
+```
+```
+
+#### Arrumando o ambiente
+
+Para a Nordic, devem ser alteradas algumas constantes no .balas.env. As que sempre devem ser ajustadas:
+- BALAS_TARGET = nordic
+- BALAS_NORDIC_ENABLE_MODEL=ON
+- NRFUTIL_BIN=Caminho-ate-a-raiz-do-projeto/external/nordic/nrfutil
+
 # Atenção
-Se não quiser mexer nas permissões em udev e afins, pode usar simplesmente (com cuidado) o comando abaixo
-mas, não é NEM UM POUCO recomendado:
+Se não quiser mexer nas permissões em udev e afins, pode usar simplesmente (com cuidado) o comando abaixo,
+não é, porém, NEM UM POUCO recomendado:
 ```
 sudo chmod -R 777 /dev/bus/usb/
 ```
