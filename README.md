@@ -102,12 +102,10 @@ external/nordic/nrfutil install device=2.20.0 sdk-manager=1.16.1
 
 - Entra [nesse link](https://www.segger.com/downloads/jlink/JLink_Linux_V924a_x86_64.deb), aceita a licença e clica em Download
 ```bash
-```
 sudo apt install -y ~/Downloads/JLink_Linux_V924a_x86_64.deb
 external/nordic/nrfutil sdk-manager install v3.4.0
 git clone https://github.com/zephyrproject-rtos/tflite-micro.git ~/ncs/v3.4.0/optional/modules/lib/tflite-micro
 git -C ~/ncs/v3.4.0/optional/modules/lib/tflite-micro checkout --detach fcc760af130f3a595b5802cdebcc77461e54f382
-```
 ```
 
 #### Arrumando o ambiente
