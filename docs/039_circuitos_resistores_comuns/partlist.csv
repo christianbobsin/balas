@@ -1,0 +1,18 @@
+referencia,quantidade,especificacao,uso
+RSH-L,1,"Resistor axial, 1 Ω, 1%, 0,5 W ou maior, filme metálico de baixa indutância",Faixa até 50 mA
+RSH-H,1,"Resistor axial/PTH, 0,1 Ω (R100), 1%, 1 W ou maior, elemento metálico para sense, preferencialmente não indutivo",Faixa até 500 mA
+RT,1,"Resistor axial 220 Ω, 1%, ¼ W ou maior",Carga do teste com fonte de tensão
+RF,1,"Resistor axial 100 Ω, 1%, ¼ W","Opcional, saída para ADC"
+CF,1,"Capacitor cerâmico 10 nF, 5% ou melhor, 25 V ou maior; preferir C0G/NP0","Opcional, filtro junto a A0"
+J1-L / J1-H,2,"Borne de parafuso PTH, 2 vias, passo 5,08 mm, especificado para pelo menos 1 A","Corrente: pino 1 I+, pino 2 I−"
+J2-L / J2-H,2,"Barra de pinos macho 1×2, passo 2,54 mm","Sense: pino 1 S+, pino 2 S−"
+Cabo J2,2,"Conector fêmea 1×2 compatível, com dois fios curtos AWG 26; trançar o par",Sense até a placa TI; um por módulo
+PCB-L / PCB-H,2,"Placa universal de ilhas isoladas, passo 2,54 mm, cerca de 5×7 cm, ou tamanho adequado aos componentes reais",Suporte soldado dos shunts
+Fio corrente,1 m,"Cobre isolado AWG 22, dividido entre entrada e retorno",Caminho I+ / I−
+Fio sense,1 m,Cobre isolado AWG 26; dois fios por módulo,Solda nas pernas até J2
+Isolação,1 conjunto,"Termorretrátil, identificação dos módulos e suporte mecânico",Evitar contatos e esforço nas soldas
+TI,1,Sua placa INA180A2 / INA180-181EVM já montada,Já disponível
+PS,1,"Fonte DC regulada de 3,3 V, capaz de fornecer pelo menos 50 mA",Alimentação e teste inicial
+DMM,1,"Seu multímetro, em tensão DC",Leitura inicial de OUT
+Fluke,1,"Fluke 5500A em fonte de corrente DC, saídas AUX HI e AUX LO",Já disponível para calibração
+ADC,1,"Arduino Due, cabo USB e conexões para A0 e GND","Opcional, calibração da cadeia completa"

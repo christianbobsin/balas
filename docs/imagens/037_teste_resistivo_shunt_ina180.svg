@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900"><rect width="1400" height="900" fill="white"/>
+<text x="45" y="50" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#182b40">Teste de bancada: shunt + INA180A2 + carga resistiva</text>
+<text x="45" y="85" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">Uma fonte regulada de 3,3 V • leitura com multímetro • sem placa conectada à saída</text>
+<text x="45" y="125" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">Aplicável ao INA180-181EVM, canal U2 (ganho 50). Confirme o modelo antes de ligar.</text>
+<text x="45" y="190" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">FONTE DC</text>
+<text x="45" y="218" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">3,3 V regulados</text>
+<polyline points="90,260 430,260" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<rect x="430" y="245" width="80" height="30" rx="4" fill="#f0f6fa" stroke="#182b40" stroke-width="2"/>
+<polyline points="510,260 820,260 820,310" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<text x="270" y="215" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">RSHUNT = 1 Ω (ou 0,1 Ω)</text>
+<text x="300" y="295" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#182b40">strap esquerdo</text>
+<text x="590" y="295" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#182b40">strap direito</text>
+<circle cx="400" cy="260" r="6" fill="#1d6595"/>
+<circle cx="550" cy="260" r="6" fill="#1d6595"/>
+<polyline points="400,260 400,350 410,350 410,480" fill="none" stroke="#258455" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="550,260 550,350 560,350 560,480" fill="none" stroke="#258455" stroke-width="3" stroke-linejoin="round"/>
+<text x="290" y="335" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#258455">fio para IN+</text>
+<text x="570" y="335" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#258455">fio para IN−</text>
+<rect x="800" y="310" width="40" height="90" rx="4" fill="#f0f6fa" stroke="#182b40" stroke-width="2"/>
+<polyline points="820,400 820,440 940,440 940,750 90,750" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<text x="855" y="345" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">R CARGA</text>
+<text x="855" y="374" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">220 Ω / ¼ W</text>
+<text x="625" y="220" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">corrente →</text>
+<polyline points="90,260 90,530 340,530" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="90" cy="260" r="6" fill="#1d6595"/>
+<text x="110" y="510" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">alimentação do INA: 3,3 V</text>
+<rect x="340" y="480" width="340" height="200" rx="4" fill="#f0f6fa" stroke="#182b40" stroke-width="2"/>
+<text x="355" y="565" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#182b40">U2 • INA180A2</text>
+<text x="355" y="596" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">INA180-181EVM</text>
+<text x="350" y="465" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">IN+ / TP212</text>
+<text x="525" y="465" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">IN− / TP213</text>
+<text x="350" y="520" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#182b40">VS / TP211</text>
+<text x="470" y="660" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#182b40">GND / TP215</text>
+<text x="580" y="550" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">OUT</text>
+<text x="580" y="575" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">TP214</text>
+<polyline points="500,680 500,750" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="500" cy="750" r="6" fill="#1d6595"/>
+<polyline points="680,610 770,610" fill="none" stroke="#a26b13" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="805" cy="610" r="35" fill="#fff9ec" stroke="#a26b13" stroke-width="3"/>
+<text x="790" y="619" font-family="DejaVu Sans, sans-serif" font-size="26" fill="#182b40">V</text>
+<text x="850" y="602" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">Multímetro</text>
+<text x="850" y="627" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">tensão DC</text>
+<polyline points="805,645 805,750" fill="none" stroke="#1d6595" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="805" cy="750" r="6" fill="#1d6595"/>
+<text x="695" y="592" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#a26b13">vermelha (+)</text>
+<text x="695" y="710" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#182b40">preta (COM)</text>
+<text x="100" y="785" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#182b40">GND comum = negativo da fonte = TP215 = COM do multímetro</text>
+<text x="60" y="830" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">Esperado: 1 Ω → I ≈ 14,93 mA e OUT ≈ 0,747 V</text>
+<text x="60" y="864" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">Alternativa: 0,1 Ω → I ≈ 14,99 mA e OUT ≈ 0,075 V</text>
+<rect x="1020" y="175" width="345" height="570" rx="4" fill="#f8fafc" stroke="#182b40" stroke-width="2"/>
+<text x="1040" y="212" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#182b40">ADAPTAÇÃO DO SHUNT</text>
+<text x="1040" y="250" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#182b40">Caddock SR10:</text>
+<text x="1040" y="285" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#182b40">ordem física: C – S – S – C</text>
+<text x="1040" y="325" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">C: terminais externos largos</text>
+<text x="1040" y="355" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">S: terminais internos estreitos</text>
+<text x="1040" y="405" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">Montagem informada:</text>
+<text x="1040" y="435" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">um strap em cada lado.</text>
+<text x="1040" y="485" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">C e S unidos à esquerda;</text>
+<text x="1040" y="515" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">C e S unidos à direita.</text>
+<text x="1040" y="565" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">Teste funcional possível;</text>
+<text x="1040" y="595" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">ligação de dois terminais.</text>
+<text x="1040" y="645" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">Fios e contatos podem</text>
+<text x="1040" y="675" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">somar erro à medição,</text>
+<text x="1040" y="705" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#182b40">sobretudo com 0,1 Ω.</text>
+</svg>

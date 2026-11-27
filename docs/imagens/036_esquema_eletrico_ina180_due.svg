@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1510" viewBox="0 0 1900 1510">
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="64" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="32" font-weight="700" fill="#182536">LIGAÇÕES DO INA180A2 — CADA TERMINAL IDENTIFICADO</text>
+<text x="60" y="109" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="24" font-weight="400" fill="#182536">Aplicável ao canal U2 da placa TI INA180-181EVM. Use os pontos TP211–TP215.</text>
+<text x="60" y="146" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#536171">Diagrama funcional: localize os pontos pela identificação na placa, não pela posição neste desenho.</text>
+<polyline points="175,250 470,250" fill="none" stroke="#182536" stroke-width="5" stroke-linejoin="round"/>
+<rect x="470" y="215" width="270" height="70" fill="#f5f7fa" stroke="#182536" stroke-width="3"/>
+<text x="605" y="258" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="700" fill="#182536">SHUNT</text>
+<text x="605" y="205" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="25" font-weight="400" fill="#182536">1 Ω ou 0,1 Ω</text>
+<text x="440" y="241" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">C</text>
+<text x="758" y="241" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">C</text>
+<polyline points="740,250 1200,250" fill="none" stroke="#182536" stroke-width="5" stroke-linejoin="round"/>
+<text x="912" y="236" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="24" font-weight="400" fill="#187448">Corrente →</text>
+<rect x="1200" y="200" width="270" height="125" fill="#f5f7fa" stroke="#182536" stroke-width="3"/>
+<text x="1335" y="242" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="25" font-weight="700" fill="#182536">PLACA MEDIDA</text>
+<text x="1214" y="281" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="25" font-weight="400" fill="#182536">+</text>
+<text x="1460" y="318" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="25" font-weight="400" fill="#182536">−</text>
+<polyline points="1470,305 1790,305 1790,850" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="175,250 175,440" fill="none" stroke="#182536" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="175" cy="490" r="50" fill="white" stroke="#182536" stroke-width="3"/>
+<text x="175" y="497" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#182536">DC</text>
+<text x="198" y="429" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="400" fill="#182536">+</text>
+<text x="198" y="577" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="400" fill="#182536">−</text>
+<polyline points="175,540 175,850" fill="none" stroke="#182536" stroke-width="5" stroke-linejoin="round"/>
+<text x="60" y="597" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">Fonte DC</text>
+<rect x="470" y="430" width="580" height="360" fill="#f2f8f5" stroke="#187448" stroke-width="3"/>
+<text x="760" y="644" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="30" font-weight="700" fill="#182536">U2 · INA180A2</text>
+<text x="760" y="676" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#182536">Ganho 50</text>
+<polyline points="520,285 520,365 610,365 610,430" fill="none" stroke="#1260a0" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="695,285 695,337 865,337 865,430" fill="none" stroke="#1260a0" stroke-width="4" stroke-linejoin="round"/>
+<text x="505" y="313" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="20" font-weight="400" fill="#1260a0">S fonte</text>
+<text x="696" y="313" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="20" font-weight="400" fill="#1260a0">S placa</text>
+<circle cx="610" cy="430" r="8" fill="#1260a0" stroke="#1260a0" stroke-width="3"/>
+<text x="610" y="490" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="40" font-weight="700" fill="#1260a0">IN+</text>
+<text x="610" y="532" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="700" fill="#1260a0">TP212</text>
+<text x="610" y="566" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#1260a0">PINO 3</text>
+<circle cx="865" cy="430" r="8" fill="#1260a0" stroke="#1260a0" stroke-width="3"/>
+<text x="865" y="490" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="40" font-weight="700" fill="#1260a0">IN−</text>
+<text x="865" y="532" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="700" fill="#1260a0">TP213</text>
+<text x="865" y="566" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#1260a0">PINO 4</text>
+<polyline points="260,657 470,657" fill="none" stroke="#187448" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="470" cy="657" r="8" fill="#187448" stroke="#187448" stroke-width="3"/>
+<text x="260" y="632" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="28" font-weight="700" fill="#187448">+3V3</text>
+<text x="492" y="676" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="34" font-weight="700" fill="#187448">VS</text>
+<text x="492" y="716" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="26" font-weight="700" fill="#187448">TP211</text>
+<text x="492" y="752" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#187448">PINO 5</text>
+<circle cx="1050" cy="572" r="8" fill="#182536" stroke="#182536" stroke-width="3"/>
+<text x="1025" y="561" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="34" font-weight="700" fill="#182536">OUT</text>
+<text x="1025" y="604" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="26" font-weight="700" fill="#182536">TP214</text>
+<text x="1025" y="641" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#182536">PINO 1</text>
+<polyline points="1050,572 1160,572" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<rect x="1160" y="557" width="110" height="30" fill="white" stroke="#182536" stroke-width="3"/>
+<text x="1215" y="513" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="25" font-weight="700" fill="#182536">R1</text>
+<text x="1215" y="549" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#182536">100 Ω</text>
+<polyline points="1270,572 1490,572" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1350" cy="572" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<polyline points="1350,572 1350,647" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1350,647 1350,677" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1327,677 1373,677" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1327,693 1373,693" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1350,693 1350,723" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<text x="1390" y="686" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#182536">C1</text>
+<text x="1390" y="715" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#182536">10 nF</text>
+<polyline points="1350,723 1350,850" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<text x="760" y="732" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="34" font-weight="700" fill="#182536">GND</text>
+<text x="760" y="768" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">TP215 · PINO 2</text>
+<circle cx="760" cy="790" r="8" fill="#182536" stroke="#182536" stroke-width="3"/>
+<polyline points="760,790 760,850" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="350,657 350,705" fill="none" stroke="#187448" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="350" cy="657" r="5" fill="#187448" stroke="#187448" stroke-width="1"/>
+<polyline points="350,705 350,735" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="327,735 373,735" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="327,751 373,751" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="350,751 350,781" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="350,781 350,850" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<text x="300" y="716" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="20" font-weight="400" fill="#182536">C201</text>
+<text x="300" y="749" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="20" font-weight="400" fill="#182536">100 nF</text>
+<text x="300" y="779" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="18" font-weight="400" fill="#182536">no EVM</text>
+<rect x="1490" y="440" width="270" height="350" fill="#eff5fb" stroke="#1260a0" stroke-width="3"/>
+<text x="1625" y="512" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="24" font-weight="700" fill="#182536">ARDUINO DUE</text>
+<text x="1509" y="580" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="29" font-weight="700" fill="#1260a0">A0</text>
+<text x="1625" y="632" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="400" fill="#182536">ADC: 0–3,3 V</text>
+<polyline points="1625,440 1625,370" fill="none" stroke="#187448" stroke-width="4" stroke-linejoin="round"/>
+<text x="1650" y="440" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="24" font-weight="700" fill="#187448">3V3</text>
+<text x="1625" y="360" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="28" font-weight="700" fill="#187448">+3V3</text>
+<text x="1625" y="758" text-anchor="middle" font-family="DejaVu Sans,sans-serif" font-size="27" font-weight="700" fill="#182536">GND</text>
+<polyline points="1625,790 1625,850" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="175,850 1790,850" fill="none" stroke="#182536" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="175" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<circle cx="350" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<circle cx="760" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<circle cx="1350" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<circle cx="1625" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<circle cx="1790" cy="850" r="5" fill="#182536" stroke="#182536" stroke-width="1"/>
+<polyline points="950,850 950,866" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="924,866 976,866" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="933,876 967,876" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="943,886 957,886" fill="none" stroke="#182536" stroke-width="3" stroke-linejoin="round"/>
+<text x="1015" y="889" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="400" fill="#182536">GND comum: fonte, placa medida, INA e Due</text>
+<text x="60" y="961" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="26" font-weight="700" fill="#182536">CONFIRA ESTAS CINCO LIGAÇÕES ANTES DE ENERGIZAR</text>
+<rect x="60" y="980" width="1780" height="45" fill="#e9eef4" stroke="#cbd3dd" stroke-width="2"/>
+<text x="78" y="1012" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="700" fill="#182536">TERMINAL</text>
+<text x="285" y="1012" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="700" fill="#182536">PINO DO CI</text>
+<text x="514" y="1012" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="700" fill="#182536">PONTO NA EVM</text>
+<text x="830" y="1012" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="22" font-weight="700" fill="#182536">CONECTAR A</text>
+<rect x="60" y="1025" width="1780" height="51" fill="#f7f9fb" stroke="#dce2e9" stroke-width="1"/>
+<text x="78" y="1059" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">IN+</text>
+<text x="285" y="1059" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">3</text>
+<text x="514" y="1059" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">TP212</text>
+<text x="830" y="1059" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#1260a0">Terminal Kelvin do lado da FONTE do shunt</text>
+<rect x="60" y="1076" width="1780" height="51" fill="white" stroke="#dce2e9" stroke-width="1"/>
+<text x="78" y="1110" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">IN−</text>
+<text x="285" y="1110" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">4</text>
+<text x="514" y="1110" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#1260a0">TP213</text>
+<text x="830" y="1110" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#1260a0">Terminal Kelvin do lado da PLACA MEDIDA do shunt</text>
+<rect x="60" y="1127" width="1780" height="51" fill="#f7f9fb" stroke="#dce2e9" stroke-width="1"/>
+<text x="78" y="1161" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">GND</text>
+<text x="285" y="1161" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">2</text>
+<text x="514" y="1161" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">TP215</text>
+<text x="830" y="1161" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#182536">GND do Due + negativo da fonte + GND da placa medida</text>
+<rect x="60" y="1178" width="1780" height="51" fill="white" stroke="#dce2e9" stroke-width="1"/>
+<text x="78" y="1212" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">OUT</text>
+<text x="285" y="1212" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">1</text>
+<text x="514" y="1212" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#182536">TP214</text>
+<text x="830" y="1212" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#182536">R1 de 100 Ω → A0; C1 de 10 nF entre A0 e GND</text>
+<rect x="60" y="1229" width="1780" height="51" fill="#f7f9fb" stroke="#dce2e9" stroke-width="1"/>
+<text x="78" y="1263" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#187448">VS</text>
+<text x="285" y="1263" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#187448">5</text>
+<text x="514" y="1263" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#187448">TP211</text>
+<text x="830" y="1263" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="400" fill="#187448">Pino 3V3 do Arduino Due</text>
+<text x="60" y="1330" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="23" font-weight="700" fill="#187448">Os dois rótulos +3V3 representam a mesma ligação: 3V3 do Due → VS / TP211 do INA.</text>
+<text x="60" y="1372" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="24" font-weight="700" fill="#1260a0">IN− vai ao lado positivo da placa APÓS o shunt. Não confundir IN− com GND.</text>
+<text x="60" y="1413" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="400" fill="#182536">Use um shunt por vez. LOW: 1 Ω / até 40 mA. HIGH: 0,1 Ω / até 400 mA. Troque com tudo desligado.</text>
+<text x="60" y="1450" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="20" font-weight="400" fill="#536171">C = terminal de corrente; S = terminal Kelvin. Pinos do CI válidos para INA180A2IDBV instalado em U2.</text>
+<text x="60" y="1485" text-anchor="start" font-family="DejaVu Sans,sans-serif" font-size="19" font-weight="400" fill="#536171">Referência: TI SBOU183, figura 1. Os pontos TP são conexões na EVM; não são números de pinos do CI.</text>
+</svg>

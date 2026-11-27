@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="730" viewBox="0 0 940 730">
+  <title>Validar o cursor de um potenciômetro com fonte de 5 V, sem Arduino conectado</title>
+  <desc>O potenciômetro de 5 kiloohms é ligado entre mais 5 V e zero volts. O cursor é medido com um voltímetro, ou alimenta um LED através de um resistor de 1 kiloohm. Nenhum fio deste teste deve ser conectado ao Arduino Due.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#334155"/></marker>
+    <style>
+      text {font-family: sans-serif; fill: #0f172a; font-size: 18px;}
+      .title {font-size: 25px; font-weight: bold;}
+      .heading {font-size: 21px; font-weight: bold;}
+      .small {font-size: 16px;}
+      .wire {fill: none; stroke: #334155; stroke-width: 3;}
+      .red {fill: none; stroke: #dc2626; stroke-width: 3;}
+      .resistor {fill: white; stroke: #334155; stroke-width: 3;}
+    </style>
+  </defs>
+  <rect width="940" height="730" fill="white"/>
+  <text x="35" y="40" class="title">Teste do cursor — fonte DC regulada de 5 V</text>
+  <text x="35" y="70" class="heading" style="fill:#b91c1c">Arduino Due totalmente desconectado deste circuito.</text>
+
+  <rect x="25" y="90" width="890" height="280" rx="12" fill="#f1f5f9"/>
+  <text x="45" y="125" class="heading">1. Com multímetro: verificar a tensão do cursor</text>
+  <text x="160" y="165">+5 V da fonte</text>
+  <path class="wire" d="M220 175 V200 M220 270 V320 M220 320 H805 V235 H674"/>
+  <rect class="resistor" x="209" y="200" width="22" height="70"/>
+  <text x="65" y="229">P1: 5 kΩ</text>
+  <text x="65" y="252" class="small">ou 20 kΩ</text>
+  <path class="red" d="M310 235 H606"/>
+  <path class="wire" d="M310 235 H235" marker-end="url(#arrow)"/>
+  <text x="305" y="213" class="small">cursor → ponta vermelha</text>
+  <circle cx="640" cy="235" r="34" fill="white" stroke="#334155" stroke-width="3"/>
+  <text x="631" y="243" class="heading">V</text>
+  <text x="580" y="179" class="small">Multímetro em V DC</text>
+  <text x="691" y="282" class="small">ponta preta → 0 V</text>
+  <circle cx="220" cy="320" r="5" fill="#334155"/>
+  <text x="90" y="342" class="small">0 V / negativo da fonte</text>
+  <text x="405" y="352" class="small">Giro completo: aproximadamente 0 a 5 V.</text>
+
+  <rect x="25" y="390" width="890" height="280" rx="12" fill="#f1f5f9"/>
+  <text x="45" y="425" class="heading">2. Sem multímetro: indicação visual com LED vermelho</text>
+  <text x="160" y="465">+5 V da fonte</text>
+  <path class="wire" d="M220 475 V495 M220 565 V610 M220 610 H805 V530 H646"/>
+  <rect class="resistor" x="209" y="495" width="22" height="70"/>
+  <text x="65" y="524">P1: 5 kΩ</text>
+  <text x="65" y="547" class="small">ou 20 kΩ</text>
+  <path class="wire" d="M310 530 H235" marker-end="url(#arrow)"/>
+  <path class="red" d="M310 530 H620"/>
+  <text x="305" y="510" class="small">cursor</text>
+  <rect class="resistor" x="420" y="519" width="64" height="22"/>
+  <text x="405" y="498" class="small">RLED: 1 kΩ</text>
+  <path d="M620 517 L620 543 L643 530 Z" fill="white" stroke="#334155" stroke-width="3"/>
+  <path class="wire" d="M646 514 V546 M624 512 L643 493 M639 512 L658 493" marker-end="url(#arrow)"/>
+  <text x="595" y="575" class="small">LED vermelho</text>
+  <text x="570" y="596" class="small">ânodo à esquerda</text>
+  <circle cx="220" cy="610" r="5" fill="#334155"/>
+  <text x="90" y="634" class="small">0 V / negativo da fonte</text>
+  <text x="435" y="651" class="small">O brilho varia; este teste não mede a tensão.</text>
+
+  <text x="35" y="699" class="heading" style="fill:#b91c1c">O cursor pode atingir 5 V. Não ligar a A0 nem a outro pino do Due.</text>
+  <text x="35" y="723" class="small">Para testar o ADC depois, retire a fonte de 5 V e use o 3V3 e GND do próprio Due.</text>
+</svg>
