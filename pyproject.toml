@@ -3,7 +3,7 @@ name = "balas"
 version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["numpy", "tensorflow==2.21.0", "pyserial", "tomli"]
+dependencies = ["numpy", "tensorflow==2.21.0", "tf_keras==2.21.0", "pyserial", "tomli"]
 
 [project.scripts]
 balas = "balas:main"

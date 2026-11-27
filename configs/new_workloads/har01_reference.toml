@@ -1,0 +1,18 @@
+# Referência fase 1 — har01 (E1): CNN 1D para atividade humana (UCI-HAR).
+# Modelo único com pesos aleatórios; sem espaço de busca nesta fase.
+# Esperado: 9.926 params, 452.992 MACs.
+
+[experiment]
+name = "har01_reference"
+benchmark = "human_activity"
+base_seed = 72
+profiling_samples = 10
+output_csv = "artifacts/{target}/har01_reference.csv"
+output_map = "artifacts/{target}/har01_reference_map.json"
+
+[hyperparameters.grid]
+variant = ["reference"]
+
+[model_specs]
+input_shape = [128, 1, 9]
+num_classes = 6

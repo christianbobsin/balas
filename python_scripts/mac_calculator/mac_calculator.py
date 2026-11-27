@@ -41,9 +41,29 @@ def count_macs(model_path):
                 layer_macs = out_elems * kh * kw
 
             elif op_name == 'FULLY_CONNECTED':
+                # Pesos do TFLite têm forma (saída, entrada). Cada elemento da saída
+                # custa 'entrada' MACs; vale para entrada 2D (1, n) e 3D (1, tokens, n).
                 weight_shape = interpreter.get_tensor_details()[inputs[1]]['shape']
-                in_dim, out_dim = weight_shape
-                layer_macs = in_dim * out_dim
+                in_dim = int(weight_shape[1])
+                layer_macs = int(np.prod(output_shape)) * in_dim
+
+            elif op_name == 'BATCH_MATMUL':
+                # Saída (..., M, N) = A (..., M, K) x B (..., K, N); o Keras gera adj_x = False.
+                a_shape = interpreter.get_tensor_details()[inputs[0]]['shape']
+                b_shape = interpreter.get_tensor_details()[inputs[1]]['shape']
+                k = int(a_shape[-1])
+                if k not in (int(b_shape[-1]), int(b_shape[-2])):
+                    raise ValueError(f"BATCH_MATMUL com formas inesperadas: {a_shape} x {b_shape}")
+                layer_macs = int(np.prod(output_shape)) * k
+
+            elif op_name == 'UNIDIRECTIONAL_SEQUENCE_LSTM':
+                # Entrada (1, passos, features). inputs[2] = pesos entrada->porta de esquecimento,
+                # forma (units, features); é obrigatório (inputs[1] pode faltar em variantes CIFG).
+                if len(input_shape) != 3:
+                    raise ValueError(f"LSTM com entrada inesperada: {input_shape}")
+                steps, features = int(input_shape[1]), int(input_shape[2])
+                units = int(interpreter.get_tensor_details()[inputs[2]]['shape'][0])
+                layer_macs = steps * 4 * units * (features + units)
 
         total_macs += layer_macs
 

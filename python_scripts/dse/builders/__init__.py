@@ -7,6 +7,13 @@ BUILDER_MAP = {
     "visual_wake_words": "python_scripts.dse.builders.visual_wake_words",
     "keyword_spotting": "python_scripts.dse.builders.keyword_spotting",
     "anomaly_detection": "python_scripts.dse.builders.anomaly_detection",
+    # Novos workloads (fase 1, modelos de referência).
+    "human_activity": "python_scripts.dse.builders.human_activity",
+    "ecg_classification": "python_scripts.dse.builders.ecg_classification",
+    # vib01 reaproveita o autoencoder do AD com outra entrada; nome próprio nos logs.
+    "vibration_anomaly": "python_scripts.dse.builders.anomaly_detection",
+    "pv_forecasting": "python_scripts.dse.builders.pv_forecasting",
+    "object_detection": "python_scripts.dse.builders.object_detection",
 }
 
 def get_builder_module(benchmark_name: str) -> ModuleType:

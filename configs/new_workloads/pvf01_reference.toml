@@ -1,0 +1,18 @@
+# Referência fase 1 — pvf01 (E5): LSTM para previsão de geração fotovoltaica (State Grid, 15 min).
+# Modelo único com pesos aleatórios; sem espaço de busca nesta fase.
+# Esperado: 4.941 params, 442.496 MACs.
+
+[experiment]
+name = "pvf01_reference"
+benchmark = "pv_forecasting"
+base_seed = 72
+profiling_samples = 10
+output_csv = "artifacts/{target}/pvf01_reference.csv"
+output_map = "artifacts/{target}/pvf01_reference_map.json"
+
+[hyperparameters.grid]
+variant = ["reference"]
+
+[model_specs]
+input_shape = [96, 4]
+num_classes = 4
